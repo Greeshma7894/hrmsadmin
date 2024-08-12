@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;700&display=swap');
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+@import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;500;600;700&display=swap');
+
+.font-sf-pro {
+  font-family: 'SF Pro Display', sans-serif;
+}
+
 .App {
   text-align: center;
 }

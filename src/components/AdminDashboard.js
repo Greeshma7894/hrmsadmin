@@ -147,7 +147,7 @@ const AdminDashboard = () => {
             <h2 className="-left-10 text-xs text-white"></h2>
           </div>
           <div className=" h-10 w-[695px] ps-[0px] flex justify-between">
-            <div className="rounded-lg  h-16 border w-[380px] border-gray-800 -top-0 relative">
+            <div className="rounded-lg  top-3 h-16 border w-[380px] border-gray-800 relative">
               <div className="flex rounded-lg h-18  items-center mb-1">
                 <div>
                   <button
@@ -184,7 +184,7 @@ const AdminDashboard = () => {
             </div>
 
             <div
-              className="rounded-lg pr-4 h-[263px] border w-[305px] border-gray-800 flex flex-col font-semibold overflow-hidden"
+              className="rounded-lg  mt-[12px] pr-4 h-[250px] border w-[305px] border-gray-800 flex flex-col font-semibold overflow-hidden"
               style={{ fontFamily: "'SF Pro Display', sans-serif" }}
             >
               <div className="pl-3 pt-3 text-xs text-gray-600 mb-4 flex justify-between items-center">
@@ -283,7 +283,7 @@ const AdminDashboard = () => {
             </div>
           </div>
           <div className=" ps-[0px] pt-8 w-[374px]">
-            <div className="border h-[84px] w-[380px] rounded-lg border-gray-800 p-4 relative">
+            <div className="border top-3 h-[84px] w-[380px] rounded-lg border-gray-800 p-4 relative">
               {/* Top left "Pending Leaves" text */}
               <div className="font-bold text-xs text-gray-700 text-[SF Pro Display] -mt-2 mb-2">
                 Pending Leaves
@@ -320,10 +320,10 @@ const AdminDashboard = () => {
                 </div>
               </div>
             </div>
-            <div className=" relative rounded-lg text-gray-700 font-bold text-xs pt-1 pl-2 w-[380px] border border-gray-700 h-24 mt-2 overflow-hidden">
+            <div className=" relative top-3 rounded-lg text-gray-700 font-bold text-xs pt-1 pl-2 w-[380px] border border-gray-700 h-[83px] mt-2 overflow-hidden">
               <span className="absolute top-1 left-2">Upcoming Holidays</span>
               <div className=" scrollable-images  flex overflow-hidden h-full pt-6">
-                <div className=" flex flex-nowrap h-14 space-x-3">
+                <div className=" flex flex-nowrap h-12 space-x-2">
                   <img
                     src="https://i.pinimg.com/736x/00/2b/18/002b187e7a8e46dc8eb2c91ad7a762e0.jpg"
                     alt="Holiday 1"

@@ -14,7 +14,7 @@ function Attendence() {
   return (
     <div>
       {/* Sidebar / Attendance */}
-      <div className="bg-black-600 border border-gray-700 rounded-lg shadow-md mb-2 time px-3 pt-5 pb-3">
+      <div className="bg-black-600 border dark:border-gray-700 border-gray-400 rounded-lg shadow-md mb-2 time px-3 pt-5 pb-3">
         <div className="flex justify-between items-center check px-2 pb-3 pt-3">
           <div className="">
             <h1 className="text-md font-bold dark:text-white text-black font-sf-pro">10:00 AM</h1>
@@ -26,12 +26,12 @@ function Attendence() {
             <p className="text-sm text-gray-600  font-sf-pro">Check-out</p>
           </div>
           <div className="bg-gray-800 rounded-xl px-4 py-2">
-            <h1 className="text-md text-emerald-500 mx-4 font-sf-pro">5:37:12</h1>
+            <h1 className="text-md font-bold text-emerald-500 mx-4 font-sf-pro">5:37:12</h1>
             <p className="text-sm text-gray-500 font-sf-pro">Working hours</p>
           </div>
         </div>
         <div className="flex border dark:border-gray-800  items-center dark:bg-black bg-gray-300 p-2 mt-5 rounded-xl">
-          <div className="bg-red-600 px-4 py-4 rounded-lg">
+          <div className="bg-red-500 px-4 py-4 rounded-lg">
             <h1 className="text-md font-bold text-black font-sf-pro">Check-out</h1>
           </div>
           <div className="flex flex-grow justify-between ml-2">

@@ -25,38 +25,38 @@ const EmployeeDetails = () => {
               <p className='text-xs font-bold dark:text-white text-black'>John</p>
             </div>
             <div>
-              <p className="text-gray-500 font-semibold text-[10px]">Gender</p>
+              <p className="text-gray-500  text-[10px]">Gender</p>
               <p className='text-xs font-bold dark:text-white text-black'>Male</p>
             </div>
             <div>
-              <p className="text-gray-500 font-semibold text-[10px]">Date of Birth</p>
+              <p className="text-gray-500  text-[10px]">Date of Birth</p>
               <p className='text-xs font-bold dark:text-white text-black'>24/08/2002</p>
             </div>
             <div>
-              <p className="text-gray-500 font-semibold text-[10px]">Blood Group</p>
+              <p className="text-gray-500  text-[10px]">Blood Group</p>
               <p className='text-xs font-bold dark:text-white text-black'>24/08/1999</p>
             </div>
             <div>
-              <p className="text-gray-500 font-semibold text-[10px]">Blood Group</p>
+              <p className="text-gray-500  text-[10px]">Blood Group</p>
               <p className='text-xs font-bold dark:text-white text-black'>O+</p>
             </div>
             <div>
-              <p className="text-gray-500 font-semibold text-[10px]">Marital Status</p>
+              <p className="text-gray-500 text-[10px]">Marital Status</p>
               <p className='text-xs font-bold dark:text-white text-black'>Married</p>
             </div>
            
             <div>
-              <p className="text-gray-500 font-semibold text-[10px]">Nationality</p>
+              <p className="text-gray-500  text-[10px]">Nationality</p>
               <p className='text-xs font-bold dark:text-white text-black'>(555) 123-4567</p>
             </div>
             <div>
-              <p className="text-gray-500 font-semibold text-[10px]">Office Details</p>
+              <p className="text-gray-500  text-[10px]">Office Details</p>
               <p className='text-xs font-bold dark:text-white text-black'>Room 101, Building A</p>
             </div>
            
           </div>
           <div className="mt-6">
-            <p className="text-green-500 font-semibold text-xs ps-36" style={{ fontFamily: "'SF Pro Display', sans-serif" }}>Your Achievements</p>
+            <p className="text-green-500 font-bold text-xs ps-36" style={{ fontFamily: "'SF Pro Display', sans-serif" }}>Your Achievements</p>
           </div>
         </div> 
       </div>
@@ -68,21 +68,21 @@ const EmployeeDetails = () => {
       </div>
       <div className="flex justify-between mt-2.5">
         <div>
-          <h1 className="text-gray-500 font-semibold mt-3 text-[10px]">Account number</h1>
+          <h1 className="text-gray-500  mt-3 text-[10px]">Account number</h1>
           <h1 className='text-xs font-bold dark:text-white text-black'>xxxxxxxxxx2255</h1>
         </div>
         <div>
-          <h1 className="text-gray-500 font-semibold mt-3 text-[10px]">Bank</h1>
+          <h1 className="text-gray-500  mt-3 text-[10px]">Bank</h1>
           <h1 className='text-xs font-bold dark:text-white text-black'>State Bank of India</h1>
         </div>
       </div>
       <div className="flex justify-between mt-2.5">
         <div>
-          <h1 className="text-gray-500 mt-1 font-semibold text-[10px]">Branch</h1>
+          <h1 className="text-gray-500 mt-1  text-[10px]">Branch</h1>
           <h1 className='text-xs font-bold dark:text-white text-black'>State Bank of India</h1>
         </div>
         <div className="pe-3">
-          <h1 className="text-gray-500 mt-1 font-semibold text-[10px]">IFSC Code</h1>
+          <h1 className="text-gray-500 mt-1  text-[10px]">IFSC Code</h1>
           <h1 className='text-xs font-bold dark:text-white text-black'>675542722222</h1>
         </div>
       </div>

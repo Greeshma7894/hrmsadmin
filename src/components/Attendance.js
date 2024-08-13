@@ -50,7 +50,7 @@ function Attendence() {
 
       {/* Attendance Calendar Header */}
       <div className="flex justify-between mb-2">
-        <h1 className="text-sm text-gray-600 font ml-1">Attendance Calendar</h1>
+        <h1 className="text-sm dark:text-gray-400 text-gray-600 font ml-1">Attendance Calendar</h1>
         <h1 className="text-sm  text-green-500 mr-1">View all</h1>
       </div>
 
@@ -59,7 +59,7 @@ function Attendence() {
         {AttendenceData.map((entry, index) => (
           <div
             key={index}
-            className="dark:bg-black bg-white border dark:border-gray-700 rounded-lg shadow-md pt-2 pb-3 px-3 flex items-center justify-between mb-2"
+            className="dark:bg-black bg-white border dark:border-gray-700 rounded-xl shadow-md pt-2 pb-2 px-3 flex items-center justify-between mb-2"
           >
             <div className="">
               <h1 className="text-2xl dark:text-white text-black font-bold">{entry.date}</h1>
@@ -67,7 +67,7 @@ function Attendence() {
             </div>
             <div className="ml-5 mb-1">
               <h2 className="text-xs pt-2 dark:text-white text-black">{entry.hours}</h2>
-              <p className="text-xs text-gray-600">{entry.timeRange}</p>
+              <p className="text-[10px] text-gray-600">{entry.timeRange}</p>
               <p className="text-xs mt-2 font-bold text-green-700">Get details</p>
             </div>
             <div

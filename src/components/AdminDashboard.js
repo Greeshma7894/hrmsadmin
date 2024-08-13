@@ -15,7 +15,7 @@ const AdminDashboard = () => {
 
   return (
     <div
-      className="adminDash dark:bg-neutral-900 bg-gray-200 min-h-screen text-white flex flex-col"
+      className="adminDash  dark:bg-neutral-900 bg-gray-200 min-h-screen text-white flex flex-col"
       style={{ fontFamily: "'SF Pro Display', sans-serif" }}
     >
       <Header className="fixed top-0 left-0 w-full" />
@@ -27,7 +27,13 @@ const AdminDashboard = () => {
 
         <div className="rounded-lg h-full w-5/12 flex flex-col mx-8 ">
           {" "}
-          <div className="h-[30%] lg:w-[118%]  dark:text-white text-black  relative -ml-1 rounded-lg mt-0 dark:border border-gray-700 dark:bg-black bg-white p-4 flex flex-col">
+
+
+          <div className=" w-[118%]">
+
+
+          <div className="">
+          <div className="h-[30%] lg:w-full  dark:text-white text-black  relative rounded-lg mt-0 dark:border border-gray-700 dark:bg-black bg-white p-4 flex flex-col">
             <p
               className="text-left mb-0 -mt-2"
               style={{
@@ -141,14 +147,18 @@ const AdminDashboard = () => {
               </div>
             </div>
           </div>
+          </div>
           <div
-            className="ps-10  w-full flex justify-start mt-1"
+            className="ps-10  w-full flex justify-start"
             style={{ paddingLeft: "29rem" }}
           >
             <h2 className="-left-10 text-xs text-white"></h2>
           </div>
-          <div className=" h-10 w-[695px] ps-[0px] flex justify-between">
-            <div className="rounded-lg dark:bg-black bg-white top-3 w-[380px] h-16 dark:border border-gray-800  relative">
+          <div className="h-10 dark:w-[704px] w-[708px] ps-[0px] flex justify-between">
+            
+
+           
+            <div className=" rounded-lg dark:bg-black bg-white top-3 w-[380px] h-16 dark:border border-gray-800  relative">
               <div className="flex rounded-lg h-18  items-center mb-1">
                 <div>
                   <button
@@ -185,7 +195,7 @@ const AdminDashboard = () => {
             </div>
 
             <div
-              className="rounded-lg dark:bg-black bg-white mt-[12px] pr-4 h-[250px]  w-[305px] dark:border border-gray-800 flex flex-col  overflow-hidden"
+              className="rounded-lg  dark:bg-black bg-white mt-[12px] pr-4 h-[246px] w-[309px] dark:border border-gray-800 flex flex-col overflow-hidden"
               style={{ fontFamily: "'SF Pro Display', sans-serif" }}
             >
               <div className="pl-3 pt-3 text-xs text-gray-600 mb-4 flex justify-between items-center">
@@ -283,7 +293,7 @@ const AdminDashboard = () => {
               </div>
             </div>
           </div>
-          <div className=" ps-[0px] pt-8 w-[374px]">
+          <div className="ps-[0px] pt-8 w-[374px]">
             <div className=" dark:bg-black bg-white top-3 h-[84px] w-[380px] rounded-lg dark:border border-gray-800 p-4 relative">
               {/* Top left "Pending Leaves" text */}
               <div className="font-bold text-xs text-gray-700 text-[SF Pro Display] -mt-2 mb-2">
@@ -359,6 +369,7 @@ const AdminDashboard = () => {
               </div>
             </div>
           </div>
+        </div>
         </div>
         <div className="pl-12" style={{ width: "28%" }}>
           <EmployeeDetails />

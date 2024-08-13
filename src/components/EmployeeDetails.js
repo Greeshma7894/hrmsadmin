@@ -5,7 +5,7 @@ import EditIcon from '@mui/icons-material/Edit';
 const EmployeeDetails = () => {
   return (
     <div>
-    <div className="left-12 rounded-lg relative border border-gray-700  w-80 p-1">
+    <div className="left-12 rounded-lg dark:bg-black bg-white relative dark:border border-gray-700  w-80 p-1">
       <div className="flex flex-col items-start">
         <div className="mt-4 ml-5 flex items-start space-x-2 mb-4">
           <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
@@ -21,8 +21,8 @@ const EmployeeDetails = () => {
           <p className="text-gray-500 font-semibold text-xs mb-6">Primary Details</p>
           <div className="grid grid-cols-2 gap-4 text-gray-300">
             <div>
-              <p className="text-gray-500 font-semibold text-xs">First Name</p>
-              <p className='text-xs font-bold dark:text-white text-black'>John</p>
+              <p className="text-gray-500 text-[10px]">First Name</p>
+              <p className='text-xs font-extrabold dark:text-white text-black'>John</p>
             </div>
             <div>
               <p className="text-gray-500 font-semibold text-xs">Gender</p>
@@ -61,7 +61,7 @@ const EmployeeDetails = () => {
         </div> 
       </div>
     </div>
-    <div className=" ml-12  border border-gray-700 p-3 w-80 mt-4 h-[187px]  rounded-lg">
+    <div className=" ml-12  dark:border border-gray-700 dark:bg-black bg-white p-3 w-80 mt-4 h-[187px]  rounded-lg">
     <div className=" px-2.5">
       <div>
         <h1 className="text-gray-700 font-semibold h-4 text-sm">Salary Account Details</h1>

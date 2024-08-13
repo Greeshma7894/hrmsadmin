@@ -15,7 +15,7 @@ const AdminDashboard = () => {
 
   return (
     <div
-      className="dark:bg-black bg-white min-h-screen text-white flex flex-col"
+      className="dark:bg-neutral-900 bg-gray-200 min-h-screen text-white flex flex-col"
       style={{ fontFamily: "'SF Pro Display', sans-serif" }}
     >
       <Header className="fixed top-0 left-0 w-full" />
@@ -27,7 +27,7 @@ const AdminDashboard = () => {
 
         <div className="rounded-lg w-5/12 flex flex-col mx-8 ">
           {" "}
-          <div className="w-[118%] dark:text-white text-black  relative -ml-1 rounded-lg mt-0 border border-gray-700   h-72 p-4 flex flex-col">
+          <div className="lg:w-[118%] dark:text-white text-black  relative -ml-1 rounded-lg mt-0 dark:border border-gray-700 dark:bg-black bg-white  h-72 p-4 flex flex-col">
             <p
               className="text-left mb-0 -mt-2"
               style={{
@@ -141,13 +141,13 @@ const AdminDashboard = () => {
             </div>
           </div>
           <div
-            className="ps-10 w-full flex justify-start mt-1"
+            className="ps-10  w-full flex justify-start mt-1"
             style={{ paddingLeft: "29rem" }}
           >
             <h2 className="-left-10 text-xs text-white"></h2>
           </div>
           <div className=" h-10 w-[695px] ps-[0px] flex justify-between">
-            <div className="rounded-lg  top-3 h-16 border w-[380px] border-gray-800 relative">
+            <div className="rounded-lg dark:bg-black bg-white top-3 w-[380px] h-16 dark:border border-gray-800  relative">
               <div className="flex rounded-lg h-18  items-center mb-1">
                 <div>
                   <button
@@ -184,7 +184,7 @@ const AdminDashboard = () => {
             </div>
 
             <div
-              className="rounded-lg  mt-[12px] pr-4 h-[250px] border w-[305px] border-gray-800 flex flex-col font-semibold overflow-hidden"
+              className="rounded-lg dark:bg-black bg-white mt-[12px] pr-4 h-[250px]  w-[305px] dark:border border-gray-800 flex flex-col font-semibold overflow-hidden"
               style={{ fontFamily: "'SF Pro Display', sans-serif" }}
             >
               <div className="pl-3 pt-3 text-xs text-gray-600 mb-4 flex justify-between items-center">
@@ -283,7 +283,7 @@ const AdminDashboard = () => {
             </div>
           </div>
           <div className=" ps-[0px] pt-8 w-[374px]">
-            <div className="border top-3 h-[84px] w-[380px] rounded-lg border-gray-800 p-4 relative">
+            <div className=" dark:bg-black bg-white top-3 h-[84px] w-[380px] rounded-lg dark:border border-gray-800 p-4 relative">
               {/* Top left "Pending Leaves" text */}
               <div className="font-bold text-xs text-gray-700 text-[SF Pro Display] -mt-2 mb-2">
                 Pending Leaves
@@ -320,7 +320,7 @@ const AdminDashboard = () => {
                 </div>
               </div>
             </div>
-            <div className=" relative top-3 rounded-lg text-gray-700 font-bold text-xs pt-1 pl-2 w-[380px] border border-gray-700 h-[83px] mt-2 overflow-hidden">
+            <div className="dark:bg-black bg-white relative top-3 rounded-lg text-gray-700 font-bold text-xs pt-1 pl-2 w-[380px] dark:border border-gray-700 h-[83px] mt-2 overflow-hidden">
               <span className="absolute top-1 left-2">Upcoming Holidays</span>
               <div className=" scrollable-images  flex overflow-hidden h-full pt-6">
                 <div className=" flex flex-nowrap h-12 space-x-2">

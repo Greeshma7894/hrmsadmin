@@ -15,12 +15,12 @@ const AdminDashboard = () => {
 
   return (
     <div
-      className="dark:bg-neutral-900 bg-gray-200 min-h-screen text-white flex flex-col"
+      className="adminDash dark:bg-neutral-900 bg-gray-200 min-h-screen text-white flex flex-col"
       style={{ fontFamily: "'SF Pro Display', sans-serif" }}
     >
       <Header className="fixed top-0 left-0 w-full" />
 
-      <div className="flex mx-12 ">
+      <div className="flex mx-12  justify-between">
         <div className="w-full md:w-1/4">
           <Attendence />
         </div>
@@ -86,10 +86,10 @@ const AdminDashboard = () => {
                   {data.map((item, index) => (
                     <div
                       key={index}
-                      className="relative rounded-xl border dark:text-white text-black  dark:bg-black bg-white border-gray-600 h-14 flex mb-2"
+                      className="relative rounded-xl border dark:text-white text-black  dark:bg-black bg-white dark:border-gray-600 h-14 flex mb-2"
                       style={{ width: "31rem" }}
                     >
-                      <div className="ps-2 rounded-l-xl bg-teal-600 h-14"></div>
+                      <div className="ps-2 rounded-l-xl dark:bg-teal-600 bg-teal-300 h-14"></div>
                       <div className="dark:bg-slate-900 bg-white ps-3"></div>
                       <h1 className="ps-2 pt-2  text-xs">Send mail to Client</h1>
                       <span className="absolute right-4 top-2 text-xs">
@@ -100,7 +100,8 @@ const AdminDashboard = () => {
                         fill="none"
                         viewBox="0 0 24 24"
                         strokeWidth="1.5"
-                        stroke="currentColor"
+                       stroke="currentColor"
+  
                         className="absolute left-9 bottom-1 w-4 h-4"
                       >
                         <path
@@ -109,7 +110,7 @@ const AdminDashboard = () => {
                           d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
                         />
                       </svg>
-                      <span className="absolute left-14 bottom-1 text-xs">
+                      <span className="absolute text-gray-600 left-14 bottom-1 text-xs">
                         Firos V A
                       </span>
                       <svg
@@ -117,7 +118,7 @@ const AdminDashboard = () => {
                         fill="none"
                         viewBox="0 0 24 24"
                         strokeWidth="1.5"
-                        stroke="currentColor"
+                        stroke="#4B5563"
                         className="absolute right-36 pb-1 bottom-1 w-5 h-5"
                       >
                         <path
@@ -131,7 +132,7 @@ const AdminDashboard = () => {
                           d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
                         />
                       </svg>
-                      <span className="absolute right-[50px] bottom-1 text-xs">
+                      <span className="absolute text-gray-600 right-[50px] bottom-1 text-xs">
                         Kalur, Ernakulam
                       </span>
                     </div>
@@ -151,7 +152,7 @@ const AdminDashboard = () => {
               <div className="flex rounded-lg h-18  items-center mb-1">
                 <div>
                   <button
-                    className="mt-3 mb-2 ml-2 bg-teal-300 text-black py-3 px-3 rounded-lg text-xs font-bold mr-2"
+                    className="mt-3 mb-2 ml-2 bg-teal-300 text-black py-3 px-3 rounded-lg text-xs  mr-2"
                     style={{ fontFamily: "'SF Pro Display', sans-serif" }}
                   >
                     Apply Leave
@@ -159,7 +160,7 @@ const AdminDashboard = () => {
                 </div>
                 <div className="flex flex-col">
                   <p
-                    className="text-gray-600 font-bold text-xs"
+                    className="text-gray-600 text-xs"
                     style={{
                       fontFamily: "'SF Pro Display', sans-serif",
                       marginBottom: "0.25rem",
@@ -184,71 +185,71 @@ const AdminDashboard = () => {
             </div>
 
             <div
-              className="rounded-lg dark:bg-black bg-white mt-[12px] pr-4 h-[250px]  w-[305px] dark:border border-gray-800 flex flex-col font-semibold overflow-hidden"
+              className="rounded-lg dark:bg-black bg-white mt-[12px] pr-4 h-[250px]  w-[305px] dark:border border-gray-800 flex flex-col  overflow-hidden"
               style={{ fontFamily: "'SF Pro Display', sans-serif" }}
             >
               <div className="pl-3 pt-3 text-xs text-gray-600 mb-4 flex justify-between items-center">
-                <span>Upcoming events</span>
+                <span className="font-bold">Upcoming events</span>
                 <span className="text-xs text-green-500 pr-3 cursor-pointer">
                   View All
                 </span>
               </div>
 
               <div className="space-y-4 overflow-y-scroll h-full scrollbar-hide">
-                <div className="ps-2 flex items-center space-x-2">
+                <div className="ps-4 flex items-center space-x-2">
                   <div className="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600 flex items-center justify-center">
                     <FaBirthdayCake className="text-gray-400 w-6 h-6" />
                   </div>
                   <div className="flex flex-col">
                     <span className="dark:text-white text-black text-xs">
                       Greeshma B,{" "}
-                      <span className="text-xs text-gray-600">
+                      <span className="text-[12px] text-gray-600">
                         has Birthday
                       </span>
                     </span>
-                    <span className="text-xs text-gray-500">24 Aug,2024</span>
+                    <span className="text-[12px] text-gray-500">24 Aug,2024</span>
                   </div>
                 </div>
-                <div className="ps-2 flex items-center space-x-2">
+                <div className="ps-4 flex items-center space-x-2">
                   <div className="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600 flex items-center justify-center">
                     <MdWorkHistory className="text-gray-400 w-6 h-6" />
                   </div>
                   <div className="flex flex-col">
                     <span className="text-xs dark:text-white text-black">
                       Firos V A ,{" "}
-                      <span className="text-xs text-gray-600">
+                      <span className="text-[12px] text-gray-600">
                         has work Anniversary
                       </span>
                     </span>
-                    <span className="text-xs text-gray-500">27 Aug,2024</span>
+                    <span className="text-[12px] text-gray-500">27 Aug,2024</span>
                   </div>
                 </div>
-                <div className="ps-2 flex items-center space-x-2">
+                <div className="ps-4 flex items-center space-x-2">
                   <div className="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600 flex items-center justify-center">
                     <MdWorkHistory className="text-gray-400 w-6 h-6" />
                   </div>
                   <div className="flex flex-col">
                     <span className="text-xs dark:text-white text-black">
                       Aleena,{" "}
-                      <span className="text-xs text-gray-600">
+                      <span className="text-[12px] text-gray-600">
                         has work Anniversary
                       </span>
                     </span>
                     <span className="text-xs text-gray-500">29 Aug,2024</span>
                   </div>
                 </div>
-                <div className="ps-2 flex items-center space-x-2">
+                <div className="ps-4 flex items-center space-x-2">
                   <div className="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600 flex items-center justify-center">
                     <MdWorkHistory className="text-gray-400 w-6 h-6" />
                   </div>
                   <div className="flex flex-col">
                     <span className="text-xs dark:text-white text-black">
                       Arathy K Nair ,{" "}
-                      <span className="text-xs text-gray-600">
+                      <span className="text-[12px] text-gray-600">
                         has work Anniversary
                       </span>
                     </span>
-                    <span className="text-xs text-gray-500">30 Aug,2024</span>
+                    <span className="text-[12px] text-gray-500">30 Aug,2024</span>
                   </div>
                 </div>
                 <div className="ps-2 flex items-center space-x-2">
@@ -258,11 +259,11 @@ const AdminDashboard = () => {
                   <div className="flex flex-col">
                     <span className="text-xs dark:text-white text-black">
                       Arathy K Nair ,{" "}
-                      <span className="text-xs text-gray-600">
+                      <span className="text-[12px] text-gray-600">
                         has work Anniversary
                       </span>
                     </span>
-                    <span className="text-xs text-gray-500">30 Aug,2024</span>
+                    <span className="text-[12px] text-gray-500">30 Aug,2024</span>
                   </div>
                 </div>
                 <div className="ps-2 flex items-center space-x-2">
@@ -272,7 +273,7 @@ const AdminDashboard = () => {
                   <div className="flex flex-col">
                     <span className="text-xs dark:text-white text-black">
                       Jancy Daniel ,{" "}
-                      <span className="text-xs text-gray-600">
+                      <span className="text-[12px] text-gray-600">
                         has Birthday
                       </span>
                     </span>

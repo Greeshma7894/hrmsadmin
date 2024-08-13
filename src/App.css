@@ -1,10 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;700&display=swap');
 @import '@fortawesome/fontawesome-free/css/all.min.css';
 @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.cdnfonts.com/css/sf-pro-display');
 
-.font-sf-pro {
-  font-family: 'SF Pro Display', sans-serif;
+
+.lgn-bg-img{
+    background-image: url(../images/Frame\ 1.png);
 }
+
+.logo-txt, .custom-font, .App{
+    font-family: 'SF Pro Display', sans-serif;
+}
+
+
 
 .App {
   text-align: center;

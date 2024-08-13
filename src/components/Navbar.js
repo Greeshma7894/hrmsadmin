@@ -45,8 +45,8 @@ const Navbar = ({ activePage }) => {
   ];
 
   return (
-    <div className='flex justify-center mt-3 mb-2 dark:bg-black bg-white '>
-      <div className='flex bg-gray-900 justify-between gap-8 rounded-xl py-2 px-6 items-center'>
+    <div className='flex justify-center mt-5 mb-2 dark:bg-neutal-900 bg-grey-200'>
+      <div className='flex bg-black  justify-between gap-8 rounded-xl py-2 px-6 items-center'>
         {items.map(({ icon, label, key, size, to }) => (
           <NavbarItem
             key={key}

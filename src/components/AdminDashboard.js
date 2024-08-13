@@ -25,9 +25,9 @@ const AdminDashboard = () => {
           <Attendence />
         </div>
 
-        <div className="rounded-lg w-5/12 flex flex-col mx-8 ">
+        <div className="rounded-lg h-full w-5/12 flex flex-col mx-8 ">
           {" "}
-          <div className="lg:w-[118%] dark:text-white text-black  relative -ml-1 rounded-lg mt-0 dark:border border-gray-700 dark:bg-black bg-white  h-72 p-4 flex flex-col">
+          <div className="h-[30%] lg:w-[118%]  dark:text-white text-black  relative -ml-1 rounded-lg mt-0 dark:border border-gray-700 dark:bg-black bg-white p-4 flex flex-col">
             <p
               className="text-left mb-0 -mt-2"
               style={{

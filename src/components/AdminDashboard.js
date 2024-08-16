@@ -135,9 +135,9 @@ const AdminDashboard = () => {
             </div>
           </div>
 
-          <div className="    w-full h-3/4 py-3 flex ">
-            <div className=" w-1/2 h-3/4">
-              <div className=" rounded-xl dark:bg-black bg-white flex  w-full h-1/4 dark:border border-gray-800  relative">
+          <div className="w-full h-3/4 py-3 flex ">
+            <div className=" -space-y-1 w-1/2 h-3/4 bottom-1">
+              <div className="rounded-xl dark:bg-black bg-white flex  w-full h-1/4 dark:border border-gray-800  relative">
                 <div className="flex rounded-lg h-full items-center mt-1">
                   <div>
                     <button
@@ -171,7 +171,7 @@ const AdminDashboard = () => {
               </div>
               <div className="dark:bg-black bg-white top-3 w-full rounded-xl dark:border border-gray-800 p-4 h-2/6 relative">
   {/* Top left "Pending Leaves" text */}
-  <div className="font-bold text-xs text-gray-500 text-[SF Pro Display] -mt-3 flex">
+  <div className="font-bold text-xs text-gray-500  -mt-3 flex">
     Pending Leaves
   </div>
 
@@ -185,10 +185,10 @@ const AdminDashboard = () => {
     <div className="flex flex-col mt-2 items-center">
       <span className="font-bold dark:text-white text-black mb-1">10</span>
       <div className="flex items-center">
-        <div className="bg-white p-2 -mt-8 rounded-full mr-2">
+        <div className="dark:bg-white bg-gray-100 p-2 -mt-8 rounded-full mr-2">
           <BsPersonUp className="text-gray-800 text-xl" />
         </div>
-        <span className="text-gray-700 -mt-2 font-bold text-xs">
+        <span className="text-gray-700 -mt-2 font-semibold text-xs">
           Casual Leave
         </span>
       </div>
@@ -196,10 +196,10 @@ const AdminDashboard = () => {
     <div className="flex flex-col mt-2 items-center">
       <span className="font-bold dark:text-white text-black mb-1">3</span>
       <div className="flex mt-1 items-center">
-        <div className="bg-white p-2 -mt-8 rounded-full mr-2">
+        <div className="dark:bg-white bg-gray-100 p-2 -mt-8 rounded-full mr-2">
           <FaUserDoctor className="text-gray-800 text-xl" />
         </div>
-        <span className="text-gray-700 -mt-3 font-bold text-xs">
+        <span className="text-gray-700 -mt-3 font-semibold text-xs">
           Sick Leave
         </span>
       </div>
@@ -208,7 +208,7 @@ const AdminDashboard = () => {
 </div>
 
 
-              <div className="dark:bg-black bg-white relative top-3 h-2/6 rounded-lg text-gray-500 font-bold text-xs pb-2 pt-1 pl-2 w-full dark:border border-gray-700  mt-2 overflow-hidden">
+              <div className="dark:bg-black bg-white relative top-6 h-2/6 rounded-lg text-gray-500 font-bold text-xs pb-2 pt-1 pl-2 w-full dark:border border-gray-700  mt-2 overflow-hidden">
                 <span className="absolute top-1 left-2">Upcoming Holidays</span>
                 <div className=" scrollable-images  flex overflow-hidden h-full pt-6">
                   <div className=" flex flex-nowrap h-full  space-x-1">
@@ -254,7 +254,7 @@ const AdminDashboard = () => {
               >
                 <div className="pl-3  pt-3 text-xs text-gray-500 mb-4 flex justify-between items-center">
                   <span className="font-bold">Upcoming events</span>
-                  <span className="text-xs font-bold text-green-500 pr-3 cursor-pointer">
+                  <span className="text-xs font-semibold text-green-500 pr-3 cursor-pointer">
                     View All
                   </span>
                 </div>

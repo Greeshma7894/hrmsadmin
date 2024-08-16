@@ -58,7 +58,7 @@ const EmployeeDetails = () => {
       </div>
     </div>
 
-    <h1 className="absolute bottom-1 right-4 text-green-500 font-semibold text-xs cursor-pointer hover:underline" >
+    <h1 className="absolute bottom-3 right-4 text-green-500 font-semibold text-xs cursor-pointer hover:underline" >
       Your Achievements
     </h1>
   </div>

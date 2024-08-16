@@ -64,10 +64,10 @@ function Attendence() {
             <h1 className="text-md dark:text-white text-black font-bold mx-3 font-sf-pro">
               00:00
             </h1>
-            <p className=" text-sm text-gray-600 font-sf-pro">Check-out</p>
+            <p className="font-semibold text-sm text-gray-600 font-sf-pro">Check-out</p>
           </div>
           <div className="bg-gray-800 rounded-xl px-4 py-2">
-            <h1 className="text-md font-bold text-emerald-500 mx-4 font-sf-pro">
+            <h1 className="text-bold font-bold text-green-500 mx-4">
               5:37:12
             </h1>
             <p className="text-sm text-gray-500 font-sf-pro">Working hours</p>
@@ -95,8 +95,8 @@ function Attendence() {
         </div>
       </div>
       {/* Attendance Calendar Header */}
-      <div className="flex justify-between ">
-        <h1 className="ps-3 text-sm dark:text-gray-400  text-gray-600 ">
+      <div className="flex justify-between">
+        <h1 className="ps-3 mb-1 text-sm dark:text-gray-400  text-gray-600 ">
           Attendance Calendar
         </h1>
         <h1 className="text-sm text-green-500 mr-1">View all</h1>

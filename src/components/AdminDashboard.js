@@ -9,7 +9,7 @@ import { FaUserDoctor } from "react-icons/fa6";
 import EmployeeDetails from "./EmployeeDetails";
 import Navbar from "./Navbar";
 
-const Dummy = () => {
+const AdminDashboard = () => {
   const dates = Array.from({ length: 12 }, (_, i) => i + 18); // Generate an array of dates from 18 to 29
   const data = [1, 2, 3, 4];
   return (
@@ -25,22 +25,16 @@ const Dummy = () => {
         </div>
 
         <div className="mx-5 w-1/2 h-3/4">
-          <div className="bg-white  lg:w-full h-4/5 dark:text-white text-black  relative rounded-lg mt-0 dark:border border-gray-700 dark:bg-black p-4 flex flex-col">
+          <div className="bg-white lg:w-full h-4/5 dark:text-white text-black  relative rounded-lg mt-0 dark:border border-gray-700 dark:bg-black p-4 flex flex-col">
             <p
-              className="text-left mb-0 -mt-2"
-              style={{
-                fontFamily: "'SF Pro Display', sans-serif",
-                fontSize: "9px",
-              }}
+              className="dark:text-white text-gray-400 text-left text-xs font-thin mb-0 -mt-2"
+             
             >
               April, 2024
             </p>
             <h1
-              className="text-left mb-1 -mt-1"
-              style={{
-                fontFamily: "'SF Pro Display', sans-serif",
-                fontSize: "15px",
-              }}
+              className="text-left text-sm font-semibold mb-1 -mt-1"
+              
             >
               My Tasks
             </h1>
@@ -143,11 +137,11 @@ const Dummy = () => {
 
           <div className="    w-full h-3/4 py-3 flex ">
             <div className=" w-1/2 h-3/4">
-              <div className=" rounded-lg dark:bg-black bg-white flex  w-full h-1/4 dark:border border-gray-800  relative">
+              <div className=" rounded-xl dark:bg-black bg-white flex  w-full h-1/4 dark:border border-gray-800  relative">
                 <div className="flex rounded-lg h-full items-center mt-1">
                   <div>
                     <button
-                      className="mt-0 mb-2 ml-2 bg-teal-300 text-black py-3 px-3 rounded-lg text-xs  mr-2"
+                      className="mt-0 mb-2 ml-2 bg-teal-300 text-black py-2 px-3 rounded-lg text-xs  mr-2"
                       style={{ fontFamily: "'SF Pro Display', sans-serif" }}
                     >
                       Apply Leave
@@ -156,10 +150,7 @@ const Dummy = () => {
                   <div className="flex flex-col">
                     <p
                       className="text-gray-600 text-xs -mt-1"
-                      style={{
-                        fontFamily: "'SF Pro Display', sans-serif",
-                        marginBottom: "0.25rem",
-                      }}
+                    
                     >
                       Previous leave Status
                     </p>
@@ -172,55 +163,52 @@ const Dummy = () => {
                   </div>
                 </div>
                 <p
-                  className=" absolute top-2 right-2 text-green-500 text-xs font-bold"
-                  style={{ fontFamily: "'SF Pro Display', sans-serif" }}
+                  className=" absolute top-2 right-2 text-green-500 text-xs font-semibold"
+                  
                 >
                   View All
                 </p>
               </div>
-              <div className=" dark:bg-black bg-white top-3  w-full rounded-lg dark:border border-gray-800 p-4 h-2/6 relative">
-                {/* Top left "Pending Leaves" text */}
-                <div className="font-bold text-xs text-gray-700 text-[SF Pro Display] -mt-3 flex">
-                  Pending Leaves
-                </div>
+              <div className="dark:bg-black bg-white top-3 w-full rounded-xl dark:border border-gray-800 p-4 h-2/6 relative">
+  {/* Top left "Pending Leaves" text */}
+  <div className="font-bold text-xs text-gray-500 text-[SF Pro Display] -mt-3 flex">
+    Pending Leaves
+  </div>
 
-                {/* Top right "Leave Info" text */}
-                <div className="absolute top-2 right-4 text-green-500 text-xs font-semibold">
-                  Leave Info
-                </div>
+  {/* Top right "Leave Info" text */}
+  <div className="absolute top-2 right-4 text-green-500 text-xs font-semibold">
+    Leave Info
+  </div>
 
-                {/* Icons and text with dates */}
-                <div className="flex justify-around">
-                  <div className="flex flex-col items-center">
-                    <span className="font-bold dark:text-white text-black mb-1">
-                      10
-                    </span>
-                    <div className="flex items-center">
-                      <div className="bg-white p-2 -mt-8 rounded-full mr-2">
-                        <BsPersonUp className="text-gray-800 text-xl" />
-                      </div>
-                      <span className="text-gray-700 -mt-1 font-bold text-xs">
-                        Casual Leave
-                      </span>
-                    </div>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <span className="font-bold dark:text-white text-black mb-1">
-                      3
-                    </span>
-                    <div className="flex items-center">
-                      <div className="bg-white p-2 -mt-8 rounded-full mr-2">
-                        <FaUserDoctor className="text-gray-800 text-xl" />
-                      </div>
-                      <span className="text-gray-700 -mt-1 font-bold text-xs">
-                        Sick Leave
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+  {/* Icons and text with dates */}
+  <div className="flex justify-around">
+    <div className="flex flex-col mt-2 items-center">
+      <span className="font-bold dark:text-white text-black mb-1">10</span>
+      <div className="flex items-center">
+        <div className="bg-white p-2 -mt-8 rounded-full mr-2">
+          <BsPersonUp className="text-gray-800 text-xl" />
+        </div>
+        <span className="text-gray-700 -mt-2 font-bold text-xs">
+          Casual Leave
+        </span>
+      </div>
+    </div>
+    <div className="flex flex-col mt-2 items-center">
+      <span className="font-bold dark:text-white text-black mb-1">3</span>
+      <div className="flex mt-1 items-center">
+        <div className="bg-white p-2 -mt-8 rounded-full mr-2">
+          <FaUserDoctor className="text-gray-800 text-xl" />
+        </div>
+        <span className="text-gray-700 -mt-3 font-bold text-xs">
+          Sick Leave
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
 
-              <div className="dark:bg-black bg-white relative top-3 h-2/6 rounded-lg text-gray-700 font-bold text-xs pb-2 pt-1 pl-2 w-full dark:border border-gray-700  mt-2 overflow-hidden">
+
+              <div className="dark:bg-black bg-white relative top-3 h-2/6 rounded-lg text-gray-500 font-bold text-xs pb-2 pt-1 pl-2 w-full dark:border border-gray-700  mt-2 overflow-hidden">
                 <span className="absolute top-1 left-2">Upcoming Holidays</span>
                 <div className=" scrollable-images  flex overflow-hidden h-full pt-6">
                   <div className=" flex flex-nowrap h-full  space-x-1">
@@ -262,11 +250,11 @@ const Dummy = () => {
             <div className=" pe-0 h-full w-1/2 px-3">
               <div
                 className="rounded-lg h-3/4  dark:bg-black bg-white dark:border border-gray-800 flex flex-col overflow-hidden"
-                style={{ fontFamily: "'SF Pro Display', sans-serif" }}
+                
               >
-                <div className="pl-3  pt-3 text-xs text-gray-600 mb-4 flex justify-between items-center">
+                <div className="pl-3  pt-3 text-xs text-gray-500 mb-4 flex justify-between items-center">
                   <span className="font-bold">Upcoming events</span>
-                  <span className="text-xs text-green-500 pr-3 cursor-pointer">
+                  <span className="text-xs font-bold text-green-500 pr-3 cursor-pointer">
                     View All
                   </span>
                 </div>
@@ -381,4 +369,4 @@ const Dummy = () => {
   );
 };
 
-export default Dummy;
+export default AdminDashboard;

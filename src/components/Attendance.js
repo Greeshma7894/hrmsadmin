@@ -84,7 +84,7 @@ function Attendence() {
               </h1>
               <p className="text-sm text-gray-500 font-sf-pro">Recent in</p>
             </div>
-            {/* Divider */}
+            <div className="h-12 flex justify-center bg-gray-200"></div>
           </div>
           <div className=" justify-center flex flex-col items-center h-full w-1/3">
             <h1 className="text-md  dark:text-white text-black font-bold mx-2 font-sf-pro">

@@ -4,8 +4,8 @@ import EditIcon from '@mui/icons-material/Edit';
 
 const EmployeeDetails = () => {
   return (
-    <div className="flex flex-col w-full mt-0 items-center h-full">
-      <div className="w-full h-3/5 dark:border border-gray-700 dark:bg-black bg-white p-4 mt-0 rounded-lg">
+    <div className="flex flex-col  w-full mt-0 items-center h-full">
+     <div className="relative w-full h-3/4 dark:border border-gray-700 dark:bg-black bg-white p-4 mt-0 rounded-lg">
   <div className="px-2.5">
     <div className="flex items-start justify-between">
       <div className="flex items-start space-x-2 mb-4">
@@ -58,17 +58,16 @@ const EmployeeDetails = () => {
       </div>
     </div>
 
-    <div className="flex justify-end pt-4">
-      <h1 className=" text-green-500 font-semibold text-xs cursor-pointer hover:underline" style={{ fontFamily: "'SF Pro Display', sans-serif" }}>
-        Your Achievements
-      </h1>
-    </div>
+    <h1 className="absolute bottom-1 right-4 text-green-500 font-semibold text-xs cursor-pointer hover:underline" >
+      Your Achievements
+    </h1>
   </div>
 </div>
 
 
-      <div className="w-full h-2/5 dark:border border-gray-700 dark:bg-black bg-white p-4 mt-4 rounded-lg">
-  <div className="px-2.5">
+
+<div className="relative w-full  h-2/5 dark:border border-gray-700 dark:bg-black bg-white p-4 mt-4 rounded-lg">
+  <div className="">
     <div>
       <h1 className="text-gray-700 font-semibold text-sm dark:text-gray-300">
         Salary Account Details
@@ -110,13 +109,12 @@ const EmployeeDetails = () => {
         </h1>
       </div>
     </div>
-    <div className="flex justify-end pt-4">
-      <h1 className="text-green-500 font-semibold text-xs cursor-pointer hover:underline">
-        Download Salary Slip
-      </h1>
-    </div>
+    <h1 className="absolute bottom-4 right-4 text-green-500 font-semibold text-xs cursor-pointer hover:underline">
+      Download Salary Slip
+    </h1>
   </div>
 </div>
+
 
     </div>
   );

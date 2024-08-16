@@ -363,8 +363,9 @@ const AdminDashboard = () => {
         </div>
         
       </div>
+      <div className="mt-3 pb-4">
       <Navbar />
-      
+      </div>
     </div>
   );
 };

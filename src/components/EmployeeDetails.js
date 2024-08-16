@@ -109,7 +109,7 @@ const EmployeeDetails = () => {
         </h1>
       </div>
     </div>
-    <h1 className="absolute bottom-4 right-4 text-green-500 font-semibold text-xs cursor-pointer hover:underline">
+    <h1 className="absolute bottom-3 right-4 text-green-500 font-semibold text-xs cursor-pointer hover:underline">
       Download Salary Slip
     </h1>
   </div>

@@ -13,13 +13,13 @@ const AdminDashboard = () => {
   const dates = Array.from({ length: 12 }, (_, i) => i + 18); // Generate an array of dates from 18 to 29
   const data = [1, 2, 3, 4];
   return (
-    <div className="dark:bg-neutral-900 bg-gray-200 h-screen min-h-screen flex flex-col">
+    <div className="overflow-hidden dark:bg-neutral-900 bg-gray-200 h-screen  flex flex-col">
       <div>
         <Header className="fixed h-full top-0 left-0 w-full" />
         <div />
       </div>
 
-      <div className=" px-4 flex h-4/5">
+      <div className=" px-4 flex h-[78%]">
         <div className=" w-full h-full md:w-1/4">
           <Attendence />
         </div>
@@ -249,7 +249,7 @@ const AdminDashboard = () => {
 
             <div className=" pe-0 h-full w-1/2 px-3">
               <div
-                className="rounded-lg h-[73%]  dark:bg-black bg-white dark:border border-gray-700 flex flex-col overflow-hidden"
+                className="rounded-lg h-[74%]  dark:bg-black bg-white dark:border border-gray-700 flex flex-col overflow-hidden"
                 
               >
                 <div className="pl-3 pt-3 text-xs text-gray-500 mb-4 flex justify-between items-center">

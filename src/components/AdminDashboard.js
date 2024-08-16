@@ -322,7 +322,7 @@ const AdminDashboard = () => {
                       </span>
                     </div>
                   </div>
-                  <div className="ps-2 flex items-center space-x-2">
+                  <div className="ps-4 flex items-center space-x-2">
                     <div className="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600 flex items-center justify-center">
                       <MdWorkHistory className="text-gray-400 w-6 h-6" />
                     </div>
@@ -338,7 +338,7 @@ const AdminDashboard = () => {
                       </span>
                     </div>
                   </div>
-                  <div className="ps-2 flex items-center space-x-2">
+                  <div className="ps-4 flex items-center space-x-2">
                     <div className="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600 flex items-center justify-center">
                       <FaBirthdayCake className="text-gray-400 w-6 h-6" />
                     </div>

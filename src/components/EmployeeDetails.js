@@ -66,7 +66,7 @@ const EmployeeDetails = () => {
 
 
 
-<div className="relative w-full  h-2/5 dark:border border-gray-700 dark:bg-black bg-white p-4 mt-4 rounded-lg">
+<div className="relative w-full  h-[43%] dark:border border-gray-700 dark:bg-black bg-white p-4 mt-4 rounded-lg">
   <div className="">
     <div>
       <h1 className="text-gray-700 font-semibold text-sm dark:text-gray-300">

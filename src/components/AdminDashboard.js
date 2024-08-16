@@ -24,7 +24,7 @@ const AdminDashboard = () => {
           <Attendence />
         </div>
 
-        <div className="mx-5 w-1/2 h-3/4">
+        <div className="mx-5 w-1/2 h-3/4 ">
           <div className="bg-white lg:w-full h-4/5 dark:text-white text-black  relative rounded-lg mt-0 dark:border border-gray-700 dark:bg-black p-4 flex flex-col">
             <p
               className="dark:text-white text-gray-400 text-left text-xs font-thin mb-0 -mt-2"
@@ -50,7 +50,7 @@ const AdminDashboard = () => {
               {dates.map((date) => (
                 <div
                   key={date}
-                  className="rounded-xl dark:bg-black bg-white border border-gray-600 w-20 h-7 flex items-center justify-center"
+                  className="rounded-xl dark:bg-black bg-white border border-gray-700 w-20 h-7 flex items-center justify-center"
                 >
                   <p
                     className="text-gray-600"
@@ -78,7 +78,7 @@ const AdminDashboard = () => {
                   {data.map((item, index) => (
                     <div
                       key={index}
-                      className="relative rounded-xl  border  dark:text-white text-black  dark:bg-black bg-white dark:border-gray-600 h-[3.5rem] flex mb-2"
+                      className="relative rounded-xl  border  dark:text-white text-black  dark:bg-black bg-white dark:border-gray-700 h-[3.5rem] flex mb-2"
                       
                     >
                       <div className="ps-2 rounded-l-xl dark:bg-teal-600 bg-teal-300 h-14"></div>
@@ -137,7 +137,7 @@ const AdminDashboard = () => {
 
           <div className="w-full h-3/4 py-3 flex ">
             <div className=" -space-y-1 w-1/2 h-3/4 bottom-1">
-              <div className="rounded-xl dark:bg-black bg-white flex  w-full h-1/4 dark:border border-gray-800  relative">
+              <div className="rounded-xl dark:bg-black bg-white flex  w-full h-1/4 dark:border border-gray-700  relative">
                 <div className="flex rounded-lg h-full items-center mt-1">
                   <div>
                     <button
@@ -169,7 +169,7 @@ const AdminDashboard = () => {
                   View All
                 </p>
               </div>
-              <div className="dark:bg-black bg-white top-3 w-full rounded-xl dark:border border-gray-800 p-4 h-2/6 relative">
+              <div className="dark:bg-black bg-white top-3 w-full rounded-xl dark:border border-gray-700 p-4 h-2/6 relative">
   {/* Top left "Pending Leaves" text */}
   <div className="font-bold text-xs text-gray-500  -mt-3 flex">
     Pending Leaves
@@ -249,10 +249,10 @@ const AdminDashboard = () => {
 
             <div className=" pe-0 h-full w-1/2 px-3">
               <div
-                className="rounded-lg h-3/4  dark:bg-black bg-white dark:border border-gray-800 flex flex-col overflow-hidden"
+                className="rounded-lg h-[73%]  dark:bg-black bg-white dark:border border-gray-700 flex flex-col overflow-hidden"
                 
               >
-                <div className="pl-3  pt-3 text-xs text-gray-500 mb-4 flex justify-between items-center">
+                <div className="pl-3 pt-3 text-xs text-gray-500 mb-4 flex justify-between items-center">
                   <span className="font-bold">Upcoming events</span>
                   <span className="text-xs font-semibold text-green-500 pr-3 cursor-pointer">
                     View All

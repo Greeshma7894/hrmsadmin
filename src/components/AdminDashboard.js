@@ -364,7 +364,7 @@ const AdminDashboard = () => {
         
       </div>
       <div className="mt-3 pb-4">
-      <Navbar />
+      <Navbar activePage="hrms" />
       </div>
     </div>
   );

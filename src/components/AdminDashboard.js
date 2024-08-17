@@ -13,11 +13,11 @@ const AdminDashboard = () => {
   const dates = Array.from({ length: 12 }, (_, i) => i + 18); // Generate an array of dates from 18 to 29
   const data = [1, 2, 3, 4];
   return (
-    <div className="overflow-hidden dark:bg-neutral-900 bg-gray-200 h-screen  flex flex-col">
-      <div>
+    <div className="pt-4 overflow-hidden dark:bg-neutral-900 bg-gray-200 h-screen  flex flex-col">
+      {/* <div>
         <Header className="fixed h-full top-0 left-0 w-full" />
         <div />
-      </div>
+      </div> */}
 
       <div className=" px-4 flex h-[78%]">
         <div className=" w-full h-full md:w-1/4">
@@ -136,124 +136,12 @@ const AdminDashboard = () => {
           </div>
 
           <div className="w-full h-3/4 py-3 flex ">
-            <div className=" -space-y-1 w-1/2 h-3/4 bottom-1">
-              <div className="rounded-xl dark:bg-black bg-white flex  w-full h-1/4 dark:border border-gray-700  relative">
-                <div className="flex rounded-lg h-full items-center mt-1">
-                  <div>
-                    <button
-                      className="mt-0 mb-2 ml-2 bg-teal-300 text-black py-2 px-3 rounded-lg text-xs  mr-2"
-                      style={{ fontFamily: "'SF Pro Display', sans-serif" }}
-                    >
-                      Apply Leave
-                    </button>
-                  </div>
-                  <div className="flex flex-col">
-                    <p
-                      className="text-gray-600 text-xs -mt-1"
-                    
-                    >
-                      Previous leave Status
-                    </p>
-                    <p
-                      className="dark:text-white text-black text-sm font-bold"
-                      style={{ fontFamily: "'SF Pro Display', sans-serif" }}
-                    >
-                      Approved
-                    </p>
-                  </div>
-                </div>
-                <p
-                  className=" absolute top-2 right-2 text-green-500 text-xs font-semibold"
-                  
-                >
-                  View All
-                </p>
-              </div>
-              <div className="dark:bg-black bg-white top-3 w-full rounded-xl dark:border border-gray-700 p-4 h-2/6 relative">
-  {/* Top left "Pending Leaves" text */}
-  <div className="font-bold text-xs text-gray-500  -mt-3 flex">
-    Pending Leaves
-  </div>
-
-  {/* Top right "Leave Info" text */}
-  <div className="absolute top-2 right-4 text-green-500 text-xs font-semibold">
-    Leave Info
-  </div>
-
-  {/* Icons and text with dates */}
-  <div className="flex justify-around">
-    <div className="flex flex-col mt-2 items-center">
-      <span className="font-bold dark:text-white text-black mb-1">10</span>
-      <div className="flex items-center">
-        <div className="dark:bg-white bg-gray-100 p-2 -mt-8 rounded-full mr-2">
-          <BsPersonUp className="text-gray-800 text-xl" />
-        </div>
-        <span className="text-gray-700 -mt-2 font-semibold text-xs">
-          Casual Leave
-        </span>
-      </div>
-    </div>
-    <div className="flex flex-col mt-2 items-center">
-      <span className="font-bold dark:text-white text-black mb-1">3</span>
-      <div className="flex mt-1 items-center">
-        <div className="dark:bg-white bg-gray-100 p-2 -mt-8 rounded-full mr-2">
-          <FaUserDoctor className="text-gray-800 text-xl" />
-        </div>
-        <span className="text-gray-700 -mt-3 font-semibold text-xs">
-          Sick Leave
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-              <div className="dark:bg-black bg-white relative top-6 h-2/6 rounded-lg text-gray-500 font-bold text-xs pb-2 pt-1 pl-2 w-full dark:border border-gray-700  mt-2 overflow-hidden">
-                <span className="absolute top-1 left-2">Upcoming Holidays</span>
-                <div className=" scrollable-images  flex overflow-hidden h-full pt-6">
-                  <div className=" flex flex-nowrap h-full  space-x-1">
-                    <img
-                      src="https://i.pinimg.com/736x/00/2b/18/002b187e7a8e46dc8eb2c91ad7a762e0.jpg"
-                      alt="Holiday 1"
-                      className="h-full object-cover rounded-lg"
-                    />
-                    <img
-                      src="https://i.pinimg.com/564x/2b/57/16/2b5716ad63acb23ff97f5688af65a815.jpg"
-                      alt="Holiday 2"
-                      className="h-full object-cover rounded-lg flex-shrink-0"
-                    />
-                    <img
-                      src="https://i.pinimg.com/564x/a4/bc/18/a4bc18d52038cbc7412ad693b6c4399e.jpg"
-                      alt="Holiday 3"
-                      className="h-full object-cover rounded-lg flex-shrink-0"
-                    />
-                    <img
-                      src="https://i.pinimg.com/564x/dc/f9/85/dcf98506953eb2fd0655d5e486bb72c2.jpg"
-                      alt="Holiday 3"
-                      className="h-full object-cover rounded-lg flex-shrink-0"
-                    />
-                    <img
-                      src="https://i.pinimg.com/564x/84/a8/eb/84a8eb07c7add24a24cd7d3e1d416524.jpg"
-                      alt="Holiday 3"
-                      className="h-full object-cover rounded-lg flex-shrink-0"
-                    />
-                    <img
-                      src="https://i.pinimg.com/564x/a1/8a/61/a18a613e65cdb0e9385570b9903cca8d.jpg"
-                      alt="Holiday 3"
-                      className="h-full object-cover rounded-lg flex-shrink-0"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className=" pe-0 h-full w-1/2 px-3">
-              <div
-                className="rounded-lg h-[74%]  dark:bg-black bg-white dark:border border-gray-700 flex flex-col overflow-hidden"
+          <div
+                className=" w-1/2 rounded-lg h-[74%]  dark:bg-black bg-white dark:border border-gray-700 flex flex-col overflow-hidden"
                 
               >
                 <div className="pl-3 pt-3 text-xs text-gray-500 mb-4 flex justify-between items-center">
-                  <span className="font-bold">Upcoming events</span>
+                  <span className="font-bold max-w-1245:font-semibold max-w-1245:text-[11px]">Upcoming events</span>
                   <span className="text-xs font-semibold text-green-500 pr-3 cursor-pointer">
                     View All
                   </span>
@@ -265,9 +153,9 @@ const AdminDashboard = () => {
                       <FaBirthdayCake className="text-gray-400 w-6 h-6" />
                     </div>
                     <div className="flex flex-col">
-                      <span className="dark:text-white text-black text-xs">
+                      <span className="dark:text-white text-black text-xs max-w-1245:text-[11px]">
                         Greeshma B,{" "}
-                        <span className="text-[12px] text-gray-600">
+                        <span className="text-[12px] text-gray-600 max-w-1245:text-[10px]">
                           has Birthday
                         </span>
                       </span>
@@ -281,9 +169,9 @@ const AdminDashboard = () => {
                       <MdWorkHistory className="text-gray-400 w-6 h-6" />
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-xs dark:text-white text-black">
+                      <span className="text-xs dark:text-white text-black max-w-1245:text-[11px]">
                         Firos V A ,{" "}
-                        <span className="text-[12px] text-gray-600">
+                        <span className="text-[12px] text-gray-600 max-w-1245:text-[10px]">
                           has work Anniversary
                         </span>
                       </span>
@@ -297,9 +185,9 @@ const AdminDashboard = () => {
                       <MdWorkHistory className="text-gray-400 w-6 h-6" />
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-xs dark:text-white text-black">
+                      <span className="text-xs dark:text-white text-black max-w-1245:text-[1px]">
                         Aleena,{" "}
-                        <span className="text-[12px] text-gray-600">
+                        <span className="text-[12px] text-gray-600 max-w-1245:text-[10px]">
                           has work Anniversary
                         </span>
                       </span>
@@ -311,9 +199,9 @@ const AdminDashboard = () => {
                       <MdWorkHistory className="text-gray-400 w-6 h-6" />
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-xs dark:text-white text-black">
+                      <span className="text-xs dark:text-white text-black max-w-1245:text-[10px]">
                         Arathy K Nair ,{" "}
-                        <span className="text-[12px] text-gray-600">
+                        <span className="text-[12px] text-gray-600 max-w-1245:text-[10px]">
                           has work Anniversary
                         </span>
                       </span>
@@ -327,9 +215,9 @@ const AdminDashboard = () => {
                       <MdWorkHistory className="text-gray-400 w-6 h-6" />
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-xs dark:text-white text-black">
+                      <span className="text-xs dark:text-white text-black max-w-1245:text-[10px]">
                         Arathy K Nair ,{" "}
-                        <span className="text-[12px] text-gray-600">
+                        <span className="text-[12px] text-gray-600 max-w-1245:text-[10px]">
                           has work Anniversary
                         </span>
                       </span>
@@ -343,15 +231,36 @@ const AdminDashboard = () => {
                       <FaBirthdayCake className="text-gray-400 w-6 h-6" />
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-xs dark:text-white text-black">
+                      <span className="text-xs dark:text-white text-black max-w-1245:text-[10px]">
                         Jancy Daniel ,{" "}
-                        <span className="text-[12px] text-gray-600">
+                        <span className="text-[12px] text-gray-600 max-w-1245:text-[10px]">
                           has Birthday
                         </span>
                       </span>
                       <span className="text-xs text-gray-500">30 Aug,2024</span>
                     </div>
                   </div>
+                </div>
+              </div>
+
+            <div className=" pe-0 h-full w-1/2 px-3">
+              <div
+                className="rounded-lg h-[74%]  dark:bg-black bg-white dark:border border-gray-700 flex flex-col overflow-hidden"
+                
+              >
+                <div className="pl-3 pt-3 text-xs text-gray-500 mb-4 flex justify-between items-center">
+                  <span className="font-bold">Announcements</span>
+                  <span className="text-xs font-semibold text-green-500 pr-3 cursor-pointer">
+                    View All
+                  </span>
+                </div>
+
+                <div className="space-y-4 overflow-y-scroll h-full scrollbar-hide">
+                  <div className="ps-4 flex items-center space-x-2">
+                   
+                    
+                  </div>
+                  
                 </div>
               </div>
             </div>

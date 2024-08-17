@@ -75,19 +75,11 @@ const Header = () => {
 
   return (
     <div className="me-8 ps-0 flex justify-between items-center p-2  overflow-hidden">
-      <svg
-        className=" h-8 w-20 text-white mr-2"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
-          d="M4 6h16M4 12h16m-7 6h7"
-        />
-      </svg>
+      <div className="flex flex-col text-white mr-2">
+  <span className="dark:text-teal-300 text-black ps-5 text-2xl font-bold">Dashboard</span>
+  <span className="dark:text-teal-300 text-black ps-6 text-xs">Manage clients here</span>
+</div>
+
       <div className=" w-60 flex items-center justify-between ">
         <div className="pt-2 ">
           <FormControlLabel

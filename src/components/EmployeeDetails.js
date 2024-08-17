@@ -15,13 +15,16 @@ const EmployeeDetails = () => {
           <div className="dark:text-white max-w-1245:text-[9px] text-black text-xs">firos@example.com</div>
         </div>
       </div>
-      <div className="mt-1">
+      <div className="mt-1 max-w-1245:mt-1">
         <EditIcon className="text-gray-400 bg-gray-700 rounded-full p-1" fontSize="small" />
       </div>
     </div>
     
-    <div className="mt-1 max-w-1245:-mt-3 min-w-1245:-space-y-1">
-      <h1 className="text-gray-500 max-w-1245:font-semibold max-w-1245:text-[10px] min-w-1245:font-semibold min-w-1245:text-xs mb-3">Primary Details</h1>
+    
+      <div className=''>
+      <h1 className="text-gray-500 max-w-1245:font-semibold max-w-1245:text-[10px] min-w-1245:font-semibold min-w-1245:text-xs mb-8">Primary Details</h1>
+      </div>
+      <div className=" max-w-1245:-mt-2 min-w-1245:-space-y-1">
       <div className="grid grid-cols-2 gap-4 text-gray-300">
         <div>
           <h1 className="max-w-1245:text-[10px] max-w-1245:-mt-1 min-w-1245:text-xs text-gray-500 text-[10px] lg:text-xs">First Name</h1>
@@ -58,7 +61,7 @@ const EmployeeDetails = () => {
       </div>
     </div>
 
-    <h1 className="absolute min-w-1245:bottom-2 max-w-1245:bottom-0 max-w-1245:text-[10px] right-4 text-green-500 font-semibold text-xs cursor-pointer hover:underline" >
+    <h1 className="absolute min-w-1245:bottom-2 max-w-1245:bottom-2 max-w-1245:text-[10px] right-4 text-green-500 font-semibold text-xs cursor-pointer hover:underline" >
       Your Achievements
     </h1>
   </div>

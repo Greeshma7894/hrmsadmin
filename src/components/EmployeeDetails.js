@@ -141,7 +141,7 @@ const EmployeeDetails = () => {
         {/* Button and leave status section */}
         <div className="max-w-1245:mt-1 flex rounded-lg h-full items-center mt-1">
           <div>
-            <button className="bg-lime-500 text-white max-w-1245:text-xs px-3 py-2 -mt-1 rounded-lg flex items-center text-xs">
+            <button className="bg-lime-500 dark:text-black text-white max-w-1245:text-xs px-3 py-2 -mt-1 rounded-lg flex items-center text-xs">
               Apply Leave
             </button>
           </div>
@@ -177,10 +177,10 @@ const EmployeeDetails = () => {
           <FaDownload className="text-gray-600 text-2xl ml-1" />
           <div className="dark:text-white text-black ml-3">
             <h3 className="font-semibold max-w-1245:text-xs">Salary Slip</h3>
-            <p className="text-xs max-w-1245:text-[10px] dark:text-gray-300 text-gray-800">Download your latest salary slip</p>
+            <p className="text-xs max-w-1245:text-[9px] dark:text-gray-300 text-gray-800">Download your latest salary slip</p>
           </div>
         </div>
-        <button className="max-w-1245:text-xs text-xs bg-lime-500 text-white max-w-1245:px-2 px-3 py-2 rounded-lg flex items-center">
+        <button className="max-w-1245:text-[10px] dark:text-black text-xs bg-lime-500 text-white max-w-1245:px-2 px-3 py-2 rounded-lg flex items-center">
           Download
         </button>
       </div>
@@ -188,7 +188,7 @@ const EmployeeDetails = () => {
       <div className="relative w-full h-[12%] dark:border border-gray-700 dark:bg-black bg-white p-4 mt-2 top-1 max-w-1245:mt-2 rounded-lg flex items-center cursor-pointer">
         <FaTrophy className=" text-yellow-400 max-w-1245:text-2xl text-3xl ml-2" />
         <div className="dark:text-white text-black ml-4">
-          <h3 className="font-semibold max-w-1245:text-sm">View Achievements</h3>
+          <h3 className="font-semibold max-w-1245:text-xs">View Achievements</h3>
           <p className="text-xs dark:text-gray-300 max-w-1245:text-[10px] text-gray-800">Click here to see your achievements</p>
         </div>
       </div>

@@ -34,8 +34,8 @@ const EmployeeDetails = () => {
               Primary Details
             </h1>
           </div>
-          <div className=" max-w-1245:-mt-2 min-w-1245:-space-y-1">
-  <div className="grid grid-cols-2 gap-4 text-gray-300">
+          <div className=" max-w-1245:-mt-5 min-w-1245:-space-y-1">
+  <div className="grid  grid-cols-2 gap-4 text-gray-300">
     <div>
       <h1 className="max-w-1245:text-[10px] max-w-1245:-mt-1 min-w-1245:text-xs text-gray-500 text-[10px] lg:text-xs">
         First Name
@@ -103,9 +103,9 @@ const EmployeeDetails = () => {
   </div>
 
   {/* Fields to show only on min-w-1440 */}
-  {/* <div className="hidden max-w-1440:grid grid-cols-2 gap-4 text-gray-300 mt-4">
+  <div className="hidden min-w-1800:grid grid-cols-2 gap-4 text-gray-300 mt-4">
     <div>
-      <h1 className="max-w-1245:text-[10px] max-w-1245:-mt-1 text-gray-500 md:text-[10px] lg:text-xs">
+      <h1 className="min-w-1245:text-[10px] min-w-1800:mt-5 max-w-1245:-mt-1 text-gray-500 md:text-[10px] lg:text-xs">
         Office Number
       </h1>
       <h1 className="text-xs max-w-1245:font-semibold min-w-1245:font-semibold max-w-1245:text-[10px] dark:text-white text-black">
@@ -113,7 +113,7 @@ const EmployeeDetails = () => {
       </h1>
     </div>
     <div>
-      <h1 className="max-w-1245:text-[10px] max-w-1245:-mt-1 text-gray-500 md:text-[10px] lg:text-xs">
+      <h1 className="max-w-1245:text-[10px] min-w-1800:mt-5 max-w-1245:-mt-1 text-gray-500 md:text-[10px] lg:text-xs">
         Office Email
       </h1>
       <h1 className="text-xs max-w-1245:font-semibold min-w-1245:font-semibold max-w-1245:text-[10px] dark:text-white text-black">
@@ -128,7 +128,7 @@ const EmployeeDetails = () => {
         (555) 123-4567
       </h1>
     </div>
-  </div> */}
+  </div>
 </div>
 
           <h1 className="absolute min-w-1245:bottom-2 max-w-1245:bottom-2 max-w-1245:text-[10px] right-4 text-green-500 font-semibold text-xs cursor-pointer hover:underline">

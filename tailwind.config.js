@@ -8,11 +8,11 @@ module.exports = {
     extend: {
       screens: {
         "min-w-1245" : { min: "1245px"},
+        "min-w-1800" : { min: "1800px"},
         "max-w-1245" : { max: "1245px"},
         "max-w-1124" : { max: "1124px"},
         "max-w-1024" : { max: "1024px"},
-        "min-w-1440" : { min: "1440px"},
-        "max-w-1440" : { max: "1440px"}
+        "max-w-2560" : { max: "2560px"}
       }
     },
   },

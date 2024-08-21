@@ -74,7 +74,7 @@ function Attendence() {
           </div>
         </div>
         <div className="flex  dark:border border-gray-700  items-center w-full dark:bg-black max-w-1245:mt-1   bg-gray-100 p-2 mt-5 rounded-xl">
-          <div className="dark:bg-red-400 bg-red-300 flex justify-center w-1/3 px-4 py-4 rounded-lg">
+          <div className="dark:bg-red-400 bg-red-400 flex justify-center w-1/3 px-4 py-4 rounded-lg">
             <h1 className="max-w-1245:text-[10px] text-sm text-black font-sf-pro">Check-out</h1>
           </div>
           <div className="flex items-center  w-1/3 justify-center">

@@ -191,7 +191,7 @@ const AdminDashboard = () => {
         </div>
       </div>
     </div>
-          <div className="w-full bg-blue-300 h-3/4 max-w-1245:h-[74%] py-3 flex ">
+          <div className="w-full h-3/4 max-w-1245:h-[74%] py-3 flex ">
             <div className="w-1/2  rounded-lg h-[74%]  dark:bg-black bg-white dark:border border-gray-700 flex flex-col overflow-hidden">
               <div className="pl-3 pt-3 text-xs text-gray-500 mb-4 flex justify-between items-center">
                 <span className="font-bold max-w-1245:font-semibold max-w-1245:text-[11px]">

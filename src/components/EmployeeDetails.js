@@ -34,7 +34,7 @@ const EmployeeDetails = () => {
               Primary Details
             </h1>
           </div>
-          <div className=" max-w-1245:-mt-5 min-w-1245:-space-y-1">
+          <div className=" max-w-1245:-mt-6 min-w-1245:-space-y-1">
   <div className="grid  grid-cols-2 gap-4 text-gray-300">
     <div>
       <h1 className="max-w-1245:text-[10px] max-w-1245:-mt-1 min-w-1245:text-xs text-gray-500 text-[10px] lg:text-xs">

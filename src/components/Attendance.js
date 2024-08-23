@@ -102,7 +102,7 @@ function Attendence() {
         <h1 className="max-w-1245:text-xs text-sm text-green-500 mr-1">View all</h1>
       </div>
       {/* Scrollable container for attendance calendar */}
-      <div className=" rounded-lg scrollbar-hide max-w-1245:h-[58%] h-[61%] overflow-y-scroll">
+      <div className=" rounded-lg scrollbar-hide max-w-1245:h-[58%] min-w-1245:h-[70%]   overflow-y-scroll">
   {AttendenceData.map((entry, index) => (
     <div
       key={index}

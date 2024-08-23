@@ -39,7 +39,7 @@ const AdminDashboard = ({ isDarkTheme }) => {
     setIsCalendarOpen(!isCalendarOpen);
   };
 
-  const data = [1, 2, 3, 4]; // Your existing data
+  const data = [1, 2, 3, 4, 5, 6]; // Your existing data
   return (
     <div className="pt-4 overflow-hidden dark:bg-neutral-900 bg-gray-200 h-screen  flex flex-col">
       {/* <div>

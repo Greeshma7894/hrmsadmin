@@ -24,7 +24,7 @@ const TimelineComponent = () => {
           />
           <TimelineConnector
             sx={{
-              borderLeft: `2px solid ${isDarkMode ? 'white' : 'black'}`,
+              borderLeft: `2px solid ${isDarkMode} ? 'white' : 'black`,
               width: 2,
             }}
           />

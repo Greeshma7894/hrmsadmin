@@ -148,7 +148,7 @@ const EmployeeDetails = () => {
           <div className="flex flex-col ml-2">
             <p className="dark:text-gray-300 max-w-1245:-mt-2  max-w-1245:text-[10px] text-gray-800 text-xs -mt-1">Previous leave Status</p>
             <p
-              className="dark:text-white max-w-1245:text-xs max-w-1245:font-semibold  text-black text-base -mt-1 max-w-1245:-mt-1 font-bold"
+              className="dark:text-white max-w-1245:text-xs max-w-1245:font-semibold  text-black text-base -mt-1 max-w-1245:-mt-1 font-semibold"
               
             >
               Approved

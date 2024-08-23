@@ -123,7 +123,7 @@ function Attendence() {
             ? "bg-lime-500 text-black"
             : entry.status === "Late"
             ? "bg-red-500 text-white"
-            : "bg-blue-500 text-black"
+            : "bg-blue-500 text-white"
         }`}
         
       >

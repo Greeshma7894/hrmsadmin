@@ -12,18 +12,21 @@ import { FaUsers } from "react-icons/fa";
 import { FaRocket } from "react-icons/fa";
 import { FaSuitcaseRolling } from "react-icons/fa";
 import { FaUmbrellaBeach } from "react-icons/fa";
-import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
-import { useTheme } from '@mui/material/styles';
+import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
+import { useTheme } from "@mui/material/styles";
 
-import dayjs from 'dayjs';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';  
+import dayjs from "dayjs";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { GrLocation } from "react-icons/gr";
 
-const AdminDashboard = () => {
+const AdminDashboard = ({ isDarkTheme }) => {
   const [selectedDate, setSelectedDate] = useState(dayjs());
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const theme = useTheme();
+
+  const strokeColor = isDarkTheme ? "#fff" : "#000";
 
   const dates = Array.from({ length: 30 }, (_, i) => i + 1); // Example dates for simplicity
 
@@ -50,147 +53,158 @@ const AdminDashboard = () => {
         </div>
 
         <div className="mx-5 w-1/2 h-3/4">
-        <div className="bg-white lg:w-full h-4/5 dark:text-white text-black relative rounded-lg mt-0 dark:border border-gray-700 dark:bg-black p-4 flex flex-col">
-      <div className="flex justify-between items-center mb-2 -mt-2">
-        <h1 className="text-left text-sm font-semibold">My Tasks</h1>
-        <p
-          className="dark:text-white text-gray-400 text-right text-xs font-thin cursor-pointer"
-          onClick={toggleCalendar}
-        >
-          {selectedDate.format('MMMM, yyyy')}
-        </p>
-      </div>
-
-      {/* Render Calendar Conditionally */}
-      {isCalendarOpen && (
-        <div
-          className={`absolute z-10 top-10 right-0 bg-gray-100 dark:bg-black rounded-lg shadow-lg p-1 ${
-            window.innerWidth < 1245 ? 'w-56' : 'w-72'
-          }`}
-        >
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DateCalendar
-              value={selectedDate}
-              onChange={handleDateChange}
-              sx={{
-                width: '100%', // Full width of the container
-                height: 'auto', // Auto height to fit content
-                '& .MuiPickersDay-root': {
-                  color: theme.palette.mode === 'dark' ? 'white' : 'inherit',
-                  fontSize: '0.75rem', // Smaller font size for date cells
-                },
-                '& .MuiPickersDay-root.Mui-selected': {
-                  backgroundColor: theme.palette.mode === 'dark' ? '#90caf9' : '#1976d2',
-                },
-                '& .MuiPickersDay-root.Mui-selected:hover': {
-                  backgroundColor: theme.palette.mode === 'dark' ? '#64b5f6' : '#115293',
-                },
-                '& .MuiPickersArrowSwitcher-root': {
-                  color: theme.palette.mode === 'dark' ? 'white' : 'inherit',
-                  fontSize: '0.875rem', // Smaller size for arrows
-                },
-                '& .MuiIconButton-root': {
-                  color: theme.palette.mode === 'dark' ? 'white' : 'inherit',
-                  fontSize: '0.875rem', // Smaller size for navigation buttons
-                },
-                '& .MuiTypography-root': {
-                  color: theme.palette.mode === 'dark' ? 'white' : 'inherit',
-                  fontSize: '0.75rem', // Smaller font size for month/year labels
-                },
-                '& .MuiSelect-select': {
-                  fontSize: '0.75rem', // Smaller font size for year dropdown
-                },
-                '& .MuiSelect-icon': {
-                  fontSize: '0.75rem', // Smaller size for year dropdown arrow
-                },
-              }}
-            />
-          </LocalizationProvider>
-        </div>
-      )}
-
-      {/* Horizontal Scrollable Dates */}
-      <div className="overflow-x-auto mb-4 no-scrollbar h-[50px] max-w-1245:h-[53px]">
-        <div className="flex space-x-2">
-          {dates.map((date) => (
-            <div
-              key={date}
-              className={`cursor-pointer flex flex-col items-center justify-center max-w-1245:w-12 max-w-1245:h-9 w-15 h-8 p-2 rounded-md ${
-                selectedDate.date() === date
-                  ? 'bg-lime-500 dark:bg-darkTeal-400 text-white'
-                  : 'bg-gray-100 dark:bg-gray-800'
-              }`}
-              onClick={() =>
-                setSelectedDate(selectedDate.date(date))
-              }
-            >
-              <span className="text-[11px] flex items-center justify-center w-6 font-bold">{date}</span>
-              <span className="text-[9px]">{selectedDate.format('MMM')}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Combined Scrollable Container */}
-      <div className="flex overflow-y-scroll h-full no-scrollbar">
-        <div>
-          <TimelineComponent />
-        </div>
-        <div className="pt-3 flex w-full h-full flex-col space-y-2">
-          {data.map((item, index) => (
-            <div
-              key={index}
-              className="relative rounded-xl border dark:text-white text-black dark:bg-black bg-white dark:border-gray-700 h-[3.5rem] flex"
-            >
-              {/* Task content goes here */}
-              <div className="ps-2 rounded-l-xl dark:bg-lime-500 bg-lime-500 h-14"></div>
-              <div className="dark:bg-slate-900 bg-white ps-3 "></div>
-              <h1 className="ps-2 pt-2 text-xs">Send mail to Client</h1>
-              <span className="absolute right-4 top-2 text-xs">12:45 PM</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="absolute left-9 bottom-1 w-4 h-4"
+          <div className="bg-white lg:w-full h-4/5 dark:text-white text-black relative rounded-lg mt-0 dark:border border-gray-700 dark:bg-black p-4 flex flex-col">
+            <div className="flex justify-between items-center mb-2 -mt-2">
+              <h1 className="text-left text-sm font-semibold">My Tasks</h1>
+              <p
+                className="dark:text-white text-gray-400 text-right text-xs font-thin cursor-pointer"
+                onClick={toggleCalendar}
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
-                />
-              </svg>
-              <span className="absolute dark:text-white left-14 bottom-1 text-xs">
-                Firos V A
-              </span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke=" #fff"
-                className="absolute  right-[100px] pb-0 bottom-1 w-4 h-4"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-                />
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
-                />
-              </svg>
-              <span className="absolute dark:text-white right-[10px] bottom-1 text-xs">
-                Kalur, Ernakulam
-              </span>
+                {selectedDate.format("MMMM, yyyy")}
+              </p>
             </div>
-          ))}
-        </div>
-      </div>
-    </div>
+
+            {/* Render Calendar Conditionally */}
+            {isCalendarOpen && (
+              <div
+                className={`absolute z-10 top-10 right-0 bg-gray-100 dark:bg-black rounded-lg shadow-lg p-1 ${
+                  window.innerWidth < 1245 ? "w-56" : "w-72"
+                }`}
+              >
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DateCalendar
+                    value={selectedDate}
+                    onChange={handleDateChange}
+                    sx={{
+                      width: "100%", // Full width of the container
+                      height: "auto", // Auto height to fit content
+                      "& .MuiPickersDay-root": {
+                        color:
+                          theme.palette.mode === "dark" ? "white" : "inherit",
+                        fontSize: "0.75rem", // Smaller font size for date cells
+                      },
+                      "& .MuiPickersDay-root.Mui-selected": {
+                        backgroundColor:
+                          theme.palette.mode === "dark" ? "#90caf9" : "#1976d2",
+                      },
+                      "& .MuiPickersDay-root.Mui-selected:hover": {
+                        backgroundColor:
+                          theme.palette.mode === "dark" ? "#64b5f6" : "#115293",
+                      },
+                      "& .MuiPickersArrowSwitcher-root": {
+                        color:
+                          theme.palette.mode === "dark" ? "white" : "inherit",
+                        fontSize: "0.875rem", // Smaller size for arrows
+                      },
+                      "& .MuiIconButton-root": {
+                        color:
+                          theme.palette.mode === "dark" ? "white" : "inherit",
+                        fontSize: "0.875rem", // Smaller size for navigation buttons
+                      },
+                      "& .MuiTypography-root": {
+                        color:
+                          theme.palette.mode === "dark" ? "white" : "inherit",
+                        fontSize: "0.75rem", // Smaller font size for month/year labels
+                      },
+                      "& .MuiSelect-select": {
+                        fontSize: "0.75rem", // Smaller font size for year dropdown
+                      },
+                      "& .MuiSelect-icon": {
+                        fontSize: "0.75rem", // Smaller size for year dropdown arrow
+                      },
+                    }}
+                  />
+                </LocalizationProvider>
+              </div>
+            )}
+
+            {/* Horizontal Scrollable Dates */}
+            <div className="overflow-x-auto mb-4 no-scrollbar h-[50px] max-w-1245:h-[53px]">
+              <div className="flex space-x-2">
+                {dates.map((date) => (
+                  <div
+                    key={date}
+                    className={`cursor-pointer flex flex-col items-center justify-center max-w-1245:w-12 max-w-1245:h-9 w-15 h-8 p-2 rounded-md ${
+                      selectedDate.date() === date
+                        ? "bg-lime-500 dark:bg-darkTeal-400 text-white"
+                        : "bg-gray-100 dark:bg-gray-800"
+                    }`}
+                    onClick={() => setSelectedDate(selectedDate.date(date))}
+                  >
+                    <span className="text-[11px] flex items-center justify-center w-6 font-bold">
+                      {date}
+                    </span>
+                    <span className="text-[9px]">
+                      {selectedDate.format("MMM")}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Combined Scrollable Container */}
+            <div className="flex overflow-y-scroll h-full no-scrollbar">
+              <div>
+                <TimelineComponent />
+              </div>
+              <div className="pt-3 flex w-full h-full flex-col space-y-2">
+                {data.map((item, index) => (
+                  <div
+                    key={index}
+                    className="relative rounded-xl border dark:text-white text-black dark:bg-black bg-white dark:border-gray-700 h-[3.5rem] flex"
+                  >
+                    {/* Task content goes here */}
+                    <div className="ps-2 rounded-l-xl dark:bg-lime-500 bg-lime-500 h-14"></div>
+                    <div className="dark:bg-slate-900 bg-white ps-3 "></div>
+                    <h1 className="ps-2 pt-2 text-xs">Send mail to Client</h1>
+                    <span className="absolute right-4 top-2 text-xs">
+                      12:45 PM
+                    </span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="currentColor"
+                      className="absolute left-9 bottom-1 w-4 h-4"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
+                      />
+                    </svg>
+                    <span className="absolute dark:text-white left-14 bottom-1 text-xs">
+                      Firos V A
+                    </span>
+                    {/* <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke={ strokeColor }
+                      className="absolute dark:text-white text-black right-[100px] pb-0 bottom-1 w-4 h-4"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                      />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
+                      />
+                    </svg> */}
+                    <GrLocation className="absolute dark:text-white text-gray-800 right-[102px] pb-0 bottom-1 w-4 h-4" />
+                    <span className="absolute dark:text-white right-[10px] bottom-1 text-xs">
+                      Kalur, Ernakulam
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
           <div className="w-full h-3/4 max-w-1245:h-[74%] py-3 flex ">
             <div className="w-1/2  rounded-lg h-[74%]  dark:bg-black bg-white dark:border border-gray-700 flex flex-col overflow-hidden">
               <div className="pl-3 pt-3 text-xs text-gray-500 mb-4 flex justify-between items-center">
@@ -334,8 +348,7 @@ const AdminDashboard = () => {
                         Project Launch Update
                       </h2>
                       <p className="text-gray-700 dark:text-gray-800 text-xs max-w-1245:text-[8px]">
-                        Reminder: Tomorrow morning, we have a function for our
-                        new project launch. Make sure to be prepared!
+                      Reminder: Tomorrow morning, we have our project launch. Be prepared!
                       </p>
                     </div>
                   </div>

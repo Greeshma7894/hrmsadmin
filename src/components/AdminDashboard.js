@@ -52,7 +52,7 @@ const AdminDashboard = ({ isDarkTheme }) => {
           <Attendence />
         </div>
 
-        <div className="mx-5 w-1/2 h-3/4">
+        <div className="mx-4 w-1/2 h-3/4">
           <div className="bg-white lg:w-full h-4/5 dark:text-white text-black relative rounded-lg mt-0 dark:border border-gray-700 dark:bg-black p-4 flex flex-col">
             <div className="flex justify-between items-center mb-2 -mt-2">
               <h1 className="text-left text-sm font-semibold">My Tasks</h1>
@@ -119,12 +119,12 @@ const AdminDashboard = ({ isDarkTheme }) => {
             )}
 
             {/* Horizontal Scrollable Dates */}
-            <div className="overflow-x-auto mb-4 no-scrollbar h-[50px] max-w-1245:h-[53px]">
+            <div className="overflow-x-auto mb-4 no-scrollbar h-[54px] max-w-1245:h-[63px]">
               <div className="flex space-x-2">
                 {dates.map((date) => (
                   <div
                     key={date}
-                    className={`cursor-pointer flex flex-col items-center justify-center max-w-1245:w-12 max-w-1245:h-9 w-15 h-8 p-2 rounded-md ${
+                    className={`cursor-pointer flex flex-col items-center justify-center max-w-1245:w-12 max-w-1245:h-11 w-15 h-10 p-2 rounded-md ${
                       selectedDate.date() === date
                         ? "bg-lime-500 dark:bg-darkTeal-400 text-white"
                         : "bg-gray-100 dark:bg-gray-800"
@@ -196,7 +196,7 @@ const AdminDashboard = ({ isDarkTheme }) => {
                         d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
                       />
                     </svg> */}
-                    <GrLocation className="absolute dark:text-white text-gray-800 right-[102px] pb-0 bottom-1 w-4 h-4" />
+                    <GrLocation className="absolute dark:text-white text-gray-800 right-[104px] pb-0 bottom-1 w-4 h-4" />
                     <span className="absolute dark:text-white right-[10px] bottom-1 text-xs">
                       Kalur, Ernakulam
                     </span>

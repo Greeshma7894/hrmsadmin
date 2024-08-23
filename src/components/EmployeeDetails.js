@@ -180,7 +180,7 @@ const EmployeeDetails = () => {
             <p className="text-xs max-w-1245:text-[9px] dark:text-gray-300 text-gray-800">Download your latest salary slip</p>
           </div>
         </div>
-        <button className="max-w-1245:text-[10px] dark:text-black text-xs bg-lime-500 text-white max-w-1245:px-2 px-3 py-2 rounded-lg flex items-center">
+        <button className="max-w-1245:-mt-3 max-w-1245:-mr-2 max-w-1245:text-[10px] dark:text-black text-xs bg-lime-500 text-white max-w-1245:px-2 px-3 py-2 rounded-lg flex items-center">
           Download
         </button>
       </div>

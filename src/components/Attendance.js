@@ -96,13 +96,13 @@ function Attendence() {
       </div>
       {/* Attendance Calendar Header */}
       <div className="flex justify-between">
-        <h1 className="max-w-1245:text-xs ps-3 mb-1 text-sm dark:text-gray-400  text-gray-600 ">
+        <h1 className="max-w-1245:text-xs ps-3  mb-1 text-sm dark:text-gray-400  text-gray-600 ">
           Attendance Calendar
         </h1>
         <h1 className="max-w-1245:text-xs text-sm text-green-500 mr-1">View all</h1>
       </div>
       {/* Scrollable container for attendance calendar */}
-      <div className="rounded-lg scrollbar-hide h-full overflow-y-scroll">
+      <div className=" rounded-lg scrollbar-hide max-w-1245:h-[58%] h-[61%] overflow-y-scroll">
   {AttendenceData.map((entry, index) => (
     <div
       key={index}

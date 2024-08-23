@@ -52,8 +52,8 @@ const AdminDashboard = ({ isDarkTheme }) => {
           <Attendence />
         </div>
 
-        <div className="mx-4 w-1/2 h-3/4">
-          <div className="bg-white lg:w-full h-4/5 dark:text-white text-black relative rounded-lg mt-0 dark:border border-gray-700 dark:bg-black p-4 flex flex-col">
+        <div className="mx-4  w-1/2 h-3/4">
+          <div className=" lg:w-full h-[78%] dark:text-white text-black relative rounded-lg mt-0 dark:border border-gray-700 dark:bg-black bg-white p-4 flex flex-col">
             <div className="flex justify-between items-center mb-2 -mt-2">
               <h1 className="text-left text-sm font-semibold">My Tasks</h1>
               <p
@@ -388,7 +388,7 @@ const AdminDashboard = ({ isDarkTheme }) => {
           <EmployeeDetails />
         </div>
       </div>
-      <div className="mt-3  pb-4">
+      <div className="mt-3 pb-5 max-w-1245:mt-1">
         <Navbar className="" activePage="hrms" />
       </div>
     </div>

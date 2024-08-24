@@ -35,11 +35,12 @@ const TimelineComponent = () => {
             />
             {index < times.length - 1 && (
               <TimelineConnector
-                sx={{
-                  borderLeft: `2px solid ${isDarkMode ? "white" : "black"}`,
-                  width: 2,
-                }}
-              />
+              sx={{
+                borderColor: isDarkMode ? "white" : "black",
+                borderWidth: 1,
+                width: 2,
+              }}
+            />
             )}
           </TimelineSeparator>
           <TimelineContent sx={{ fontSize: "0.75rem", whiteSpace: "nowrap" }}>

@@ -196,7 +196,7 @@ const AdminDashboard = ({ isDarkTheme }) => {
                         d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
                       />
                     </svg> */}
-                    <GrLocation className="absolute dark:text-white text-gray-800 right-[104px] pb-0 bottom-1 w-4 h-4" />
+                    <GrLocation className="absolute dark:text-white text-gray-800 right-[104px] max-w-1245:right-[106px] pb-0 bottom-1 w-4 h-4" />
                     <span className="absolute dark:text-white right-[10px] bottom-1 text-xs">
                       Kalur, Ernakulam
                     </span>

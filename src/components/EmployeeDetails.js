@@ -156,7 +156,7 @@ const EmployeeDetails = () => {
         </div>
 
         {/* "View All" text */}
-        <p className="absolute top-2 max-w-1245:text-[10px] max-w-1245:top-1 right-4 text-green-500 text-xs font-semibold">
+        <p className="absolute top-2 max-w-1245:text-[10px] max-w-1245:top-1 right-4 text-green-500 text-xs font-semibold cursor-pointer hover:underline">
           View All
         </p>
 

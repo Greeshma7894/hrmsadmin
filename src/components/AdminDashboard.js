@@ -211,7 +211,7 @@ const AdminDashboard = ({ isDarkTheme }) => {
                 <span className="font-bold max-w-1245:font-semibold max-w-1245:text-[11px]">
                   Upcoming events
                 </span>
-                <span className="text-xs font-semibold text-green-500 pr-3 cursor-pointer">
+                <span className="text-xs font-semibold text-green-500 pr-3 cursor-pointer hover:underline">
                   View All
                 </span>
               </div>
@@ -322,7 +322,7 @@ const AdminDashboard = ({ isDarkTheme }) => {
                   <span className="font-bold max-w-1245:font-semibold max-w-1245:text-[11px]">
                     Announcements
                   </span>
-                  <span className="text-xs font-semibold text-green-500 pr-3 cursor-pointer">
+                  <span className="text-xs font-semibold text-green-500 pr-3 cursor-pointer  hover:underline">
                     View All
                   </span>
                 </div>

@@ -54,7 +54,7 @@ function Attendence() {
       <div className="max-w-1245:h-[170px] dark:bg-black w-full px-2  bg-white dark:border border-gray-700 rounded-lg shadow-md mb-2 pt-5 pb-3">
         <div className="flex justify-around dark:bg-black bg-white items-center  px-2 pb-3 pt-2 max-w-1245:-mt-3">
           <div>
-            <h1 className="max-w-1245:text-xs  text-md  dark:text-white text-black font-sf-pro">
+            <h1 className="max-w-1245:text-xs  text-md dark:text-white text-black font-sf-pro">
               10:00 AM
             </h1>
             <p className="ps-2 max-w-1245:text-[11px] text-sm  text-gray-600 font-sf-pro">Check-in</p>
@@ -74,7 +74,7 @@ function Attendence() {
           </div>
         </div>
         <div className="flex dark:border border-gray-700  items-center w-full dark:bg-black max-w-1245:mt-1 justify-center bg-gray-100 p-2 mt-5 rounded-xl">
-          <div className="dark:bg-red-400 bg-red-400 flex justify-center w-1/3 px-4 py-4 rounded-lg">
+          <div className="dark:bg-red-400 bg-red-400 flex justify-center w-1/3 px-4 py-4 rounded-lg cursor-pointer ">
             <h1 className="max-w-1245:text-[10px] dark:max-w-1245:text-[10px] text-sm text-black font-sf-pro">Check-out</h1>
           </div>
           <div className="flex items-center  w-1/3 justify-center">
@@ -99,7 +99,7 @@ function Attendence() {
         <h1 className="max-w-1245:text-xs ps-3  mb-1 text-sm dark:text-gray-400  text-gray-600 ">
           Attendance Calendar
         </h1>
-        <h1 className="max-w-1245:text-xs text-sm text-green-500 mr-1">View all</h1>
+        <h1 className="max-w-1245:text-xs text-sm text-green-500 mr-1 cursor-pointer hover:underline">View all</h1>
       </div>
       {/* Scrollable container for attendance calendar */}
       <div className=" rounded-lg scrollbar-hide max-w-1245:h-[58%] min-w-1245:h-[70%]   overflow-y-scroll">

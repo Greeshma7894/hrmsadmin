@@ -54,7 +54,7 @@ function Attendence() {
       <div className="max-w-1245:h-[170px] dark:bg-black w-full px-2  bg-white dark:border border-gray-700 rounded-lg shadow-md mb-2 pt-5 pb-3">
         <div className="flex justify-around dark:bg-black bg-white items-center  px-2 pb-3 pt-2 max-w-1245:-mt-3">
           <div>
-            <h1 className="max-w-1245:text-xs  text-md dark:text-white text-black font-sf-pro">
+            <h1 className="max-w-1245:text-xs text-md dark:text-white text-black font-sf-pro">
               10:00 AM
             </h1>
             <p className="ps-2 max-w-1245:text-[11px] text-sm  text-gray-600 font-sf-pro">Check-in</p>
@@ -66,7 +66,7 @@ function Attendence() {
             </h1>
             <p className="max-w-1245:text-[11px] text-sm text-gray-600 font-sf-pro">Check-out</p>
           </div>
-          <div className="max-w-1245:text-xs  dark:bg-gray-800 bg-gray-200 rounded-xl px-4 py-2">
+          <div className="max-w-1245:text-xs  dark:bg-gray-800 bg-lime-50 rounded-xl px-4 py-2">
             <h1 className="max-w-1245:text-xs  text-bold  text-lime-500 mx-4">
               5:37:12
             </h1>
@@ -74,8 +74,8 @@ function Attendence() {
           </div>
         </div>
         <div className="flex dark:border border-gray-700  items-center w-full dark:bg-black max-w-1245:mt-1 justify-center bg-gray-100 p-2 mt-5 rounded-xl">
-          <div className="dark:bg-red-400 bg-red-400 flex justify-center w-1/3 px-4 py-4 rounded-lg cursor-pointer ">
-            <h1 className="max-w-1245:text-[10px] dark:max-w-1245:text-[10px] text-sm text-black font-sf-pro">Check-out</h1>
+          <div className="dark:bg-red-500 bg-red-500 flex justify-center w-1/3 px-4 py-4 rounded-lg cursor-pointer ">
+            <h1 className="max-w-1245:text-[10px] dark:max-w-1245:text-[10px] text-sm text-white font-sf-pro">Check-out</h1>
           </div>
           <div className="flex items-center  w-1/3 justify-center">
             <div className="flex  flex-col justify-center">

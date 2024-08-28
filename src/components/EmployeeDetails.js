@@ -1,23 +1,43 @@
 import React from "react";
+import { useQuery } from "react-query";
+import { fetchUserProfile } from "../services/ProfileService";
 import Avatar from "@mui/material/Avatar";
 import EditIcon from "@mui/icons-material/Edit";
-import { FaDownload } from "react-icons/fa";
-import { FaTrophy } from "react-icons/fa";
+
+import ApplyLeave from "./ApplyLeave";
+import SalaryDetails from "./SalaryDetails";
+import Achievements from "./Achievements";
 
 const EmployeeDetails = () => {
+  const { data, error, isLoading } = useQuery("userProfile", fetchUserProfile);
+  //const token = localStorage.getItem("token")
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error fetching user profile: {error.message}</div>;
+
+  // Render user profile data when available
+  console.log("data is", data);
+  // console.log("token is",token)
+  //   console.log('Data:', data);
+  // console.log('Is Data Defined:', data !== undefined);
+  // console.log('Is Data Empty:', !data || Object.keys(data).length === 0);
+  // console.log("greeshma",data.first_name);
+
   return (
     <div className="flex flex-col w-full mt-0 items-center h-full">
-      <div className="relative w-full  h-[59%] max-w-1245:h-[57%] dark:border border-gray-700 dark:bg-black bg-white p-4 mt-0 rounded-lg">
+      <div className="relative w-full h-[59%] max-w-1245:h-[57%] dark:border border-gray-700 dark:bg-black bg-white p-4 mt-0 rounded-lg">
         <div className="px-2.5">
-          <div className="flex max-w-1245:-mt-2 items-start  justify-between">
-            <div className="flex  items-start space-x-2 mb-4">
-              <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+          <div className="flex max-w-1245:-mt-2 items-start justify-between">
+            <div className="flex items-start space-x-2 mb-4">
+              <Avatar
+                alt="Remy Sharp"
+                src={data.image || "/static/images/avatar/1.jpg"}
+              />
               <div>
                 <div className="dark:text-white max-w-1245:font-semibold text-black font-bold text-sm">
-                  Firos A
+                  {data.first_name} {data.middle_name} {data.last_name}
                 </div>
                 <div className="dark:text-white max-w-1245:text-[9px] text-black text-xs">
-                  firos@example.com
+                  {data.email}
                 </div>
               </div>
             </div>
@@ -29,19 +49,19 @@ const EmployeeDetails = () => {
             </div>
           </div>
 
-          <div className="">
+          <div>
             <h1 className="text-gray-500 max-w-1245:font-semibold max-w-1245:text-[10px] min-w-1245:font-semibold min-w-1245:text-xs mb-8">
               Primary Details
             </h1>
           </div>
-          <div className=" max-w-1245:-mt-6 min-w-1245:-space-y-1">
-            <div className="grid  grid-cols-2 gap-4 text-gray-300">
+          <div className="max-w-1245:-mt-6 min-w-1245:-space-y-1">
+            <div className="grid grid-cols-2 gap-4 text-gray-300">
               <div>
                 <h1 className="max-w-1245:text-[10px] max-w-1245:-mt-1 min-w-1245:text-xs text-gray-500 text-[10px] lg:text-xs">
                   First Name
                 </h1>
                 <h1 className="text-xs max-w-1245:font-semibold min-w-1245:font-semibold max-w-1245:text-[10px] dark:text-white text-black">
-                  John
+                  {data.first_name}
                 </h1>
               </div>
               <div>
@@ -49,7 +69,7 @@ const EmployeeDetails = () => {
                   Gender
                 </h1>
                 <h1 className="text-xs max-w-1245:font-semibold min-w-1245:font-semibold max-w-1245:text-[10px] dark:text-white text-black">
-                  Male
+                  {data.gender}
                 </h1>
               </div>
               <div>
@@ -57,7 +77,7 @@ const EmployeeDetails = () => {
                   Date of Birth
                 </h1>
                 <h1 className="text-xs max-w-1245:font-semibold max-w-1245:text-[10px] min-w-1245:font-semibold dark:text-white text-black">
-                  24/08/2002
+                  {new Date(data.date_of_birth).toLocaleDateString()}
                 </h1>
               </div>
               <div>
@@ -65,15 +85,7 @@ const EmployeeDetails = () => {
                   Blood Group
                 </h1>
                 <h1 className="text-xs max-w-1245:font-semibold min-w-1245:font-semibold max-w-1245:text-[10px] dark:text-white text-black">
-                  A+
-                </h1>
-              </div>
-              <div>
-                <h1 className="max-w-1245:text-[10px] max-w-1245:-mt-1 text-gray-500 text-[10px] lg:text-xs">
-                  Blood Group
-                </h1>
-                <h1 className="text-xs max-w-1245:font-semibold min-w-1245:font-semibold max-w-1245:text-[10px] dark:text-white text-black">
-                  O+
+                  {data.blood_group}
                 </h1>
               </div>
               <div>
@@ -81,7 +93,7 @@ const EmployeeDetails = () => {
                   Marital Status
                 </h1>
                 <h1 className="text-xs max-w-1245:font-semibold min-w-1245:font-semibold max-w-1245:text-[10px] dark:text-white text-black">
-                  Married
+                  {data.marital_status}
                 </h1>
               </div>
               <div>
@@ -89,15 +101,15 @@ const EmployeeDetails = () => {
                   Nationality
                 </h1>
                 <h1 className="text-xs max-w-1245:font-semibold min-w-1245:font-semibold max-w-1245:text-[10px] dark:text-white text-black">
-                  (555) 123-4567
+                  {data.nationality}
                 </h1>
               </div>
               <div>
                 <h1 className="max-w-1245:text-[10px] max-w-1245:-mt-1 text-gray-500 text-[10px] lg:text-xs">
-                  Office Details
+                  Designation
                 </h1>
                 <h1 className="text-xs max-w-1245:font-semibold min-w-1245:font-semibold max-w-1245:text-[10px] min dark:text-white text-black">
-                  Room 101, Building
+                  {data.designation} 
                 </h1>
               </div>
             </div>
@@ -109,7 +121,7 @@ const EmployeeDetails = () => {
                   Office Number
                 </h1>
                 <h1 className="text-xs max-w-1245:font-semibold min-w-1245:font-semibold max-w-1245:text-[10px] dark:text-white text-black">
-                  9841254785
+                  {data.office_ph_no}
                 </h1>
               </div>
               <div>
@@ -117,7 +129,7 @@ const EmployeeDetails = () => {
                   Office Email
                 </h1>
                 <h1 className="text-xs max-w-1245:font-semibold min-w-1245:font-semibold max-w-1245:text-[10px] dark:text-white text-black">
-                  firos@teqbae.com
+                  {data.office_email}
                 </h1>
               </div>
               <div>
@@ -125,7 +137,7 @@ const EmployeeDetails = () => {
                   Personal Number
                 </h1>
                 <h1 className="text-xs max-w-1245:font-semibold min-w-1245:font-semibold max-w-1245:text-[10px] dark:text-white text-black">
-                  (555) 123-4567
+                  {data.ph_no}
                 </h1>
               </div>
             </div>
@@ -138,64 +150,15 @@ const EmployeeDetails = () => {
       </div>
 
       <div className="relative w-full h-[12%] dark:border border-gray-700 dark:bg-black bg-white p-4 mt-2 top-1 max-w-1245:mt-2 rounded-lg">
-        {/* Button and leave status section */}
-        <div className="max-w-1245:mt-1 flex rounded-lg h-full items-center mt-1">
-          <div>
-            <button className="bg-lime-500 dark:text-black text-white max-w-1245:text-xs px-3 py-2 -mt-1 rounded-lg flex items-center text-xs">
-              Apply Leave
-            </button>
-          </div>
-          <div className="flex flex-col ml-2">
-            <p className="dark:text-gray-300 max-w-1245:-mt-2  max-w-1245:text-[10px] text-gray-800 text-xs -mt-1">
-              Previous leave Status
-            </p>
-            <p className="dark:text-white max-w-1245:text-xs max-w-1245:font-semibold  text-black text-base -mt-1 max-w-1245:-mt-1 font-semibold">
-              Approved
-            </p>
-          </div>
-        </div>
-
-        {/* "View All" text */}
-        <p className="absolute top-2 max-w-1245:text-[10px] max-w-1245:top-1 right-4 text-green-500 text-xs font-semibold cursor-pointer hover:underline">
-          View All
-        </p>
-
-        {/* "Pending Leaves" and "Leave Info" texts */}
-        <div className="dark:bg-black bg-white top-3 w-full rounded-xl dark:border border-gray-800 p-4 h-2/6 relative mt-2">
-          <div className="font-bold text-xs text-gray-500 -mt-3 flex">
-            Pending Leaves
-          </div>
-          <div className="absolute top-2 right-4 text-green-500 text-xs font-semibold">
-            Leave Info
-          </div>
-        </div>
+        <ApplyLeave />
       </div>
 
-      <div className="relative w-full h-[12%] dark:border border-gray-700 dark:bg-black bg-white p-4 mt-2 top-1 max-w-1245:mt-2 rounded-lg flex items-center justify-between">
-        <div className="flex max-w-1245:-ml-1 items-center">
-          <FaDownload className="text-gray-600 text-2xl ml-1" />
-          <div className="dark:text-white  text-black ml-3">
-            <h3 className="font-semibold max-w-1245:text-xs">Salary Slip</h3>
-            <p className="text-xs max-w-1245:text-[9px] dark:text-gray-300 text-gray-800">
-              Download your latest salary slip
-            </p>
-          </div>
-        </div>
-        <button className="max-w-1245:-mt-1 max-w-1245:-mr-2 max-w-1245:text-[10px] dark:text-black text-xs bg-lime-500 text-white max-w-1245:px-2 px-3 py-2 rounded-lg flex items-center">
-          Download
-        </button>
+      <div className="relative w-full h-[12%] dark:border border-gray-700 dark:bg-black bg-white p-4 mt-2 top-1 max-w-1245:mt-2 rounded-lg  items-center justify-between">
+        <SalaryDetails />
       </div>
 
       <div className="relative w-full h-[12%] dark:border border-gray-700 dark:bg-black bg-white p-4 mt-2 top-1 max-w-1245:mt-2 rounded-lg flex items-center cursor-pointer">
-        <FaTrophy className=" text-yellow-400 max-w-1245:text-2xl text-3xl ml-2" />
-        <div className="dark:text-white text-black ml-4">
-          <h3 className="font-semibold max-w-1245:text-xs">
-            View Achievements
-          </h3>
-          <p className="text-xs dark:text-gray-300 max-w-1245:text-[10px] text-gray-800">
-            Click here to see your achievements
-          </p>
-        </div>
+        <Achievements />
       </div>
     </div>
   );

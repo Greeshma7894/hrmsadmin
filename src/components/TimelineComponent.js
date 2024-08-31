@@ -10,7 +10,7 @@ const TimelineComponent = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const times = [
-    "10.00 AM",
+    "10.00 AM", 
     "11.00 AM",
     "12.00 PM",
     "04.00 PM",

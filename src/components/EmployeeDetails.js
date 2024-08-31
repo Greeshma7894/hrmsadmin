@@ -10,14 +10,14 @@ import Achievements from "./Achievements";
 
 const EmployeeDetails = () => {
   const { data, error, isLoading } = useQuery("userProfile", fetchUserProfile);
-  //const token = localStorage.getItem("token")
+  //const token = localStorage.getItem("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6NCwiUHJpdmlsZWdlIjoxLCJSb2xlIjoiRU1QTE9ZRUUiLCJpYXQiOjE3MjQ5MDUyNDl9.q6IMwNwcK6-Ld4Pi-aUA8eiIegpX8Ao47ellXqfZEWU")
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error fetching user profile: {error.message}</div>;
 
   // Render user profile data when available
   console.log("data is", data);
-  // console.log("token is",token)
-  //   console.log('Data:', data);
+  //console.log("token is",token)
+    
   // console.log('Is Data Defined:', data !== undefined);
   // console.log('Is Data Empty:', !data || Object.keys(data).length === 0);
   // console.log("greeshma",data.first_name);

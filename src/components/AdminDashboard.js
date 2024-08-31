@@ -16,11 +16,15 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { GrLocation } from "react-icons/gr";
+// import { useAssignedTasks } from "../services/TaskService";
 
 const AdminDashboard = ({ isDarkTheme }) => {
   const [selectedDate, setSelectedDate] = useState(dayjs());
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+  //const { data: tasks, isLoading, isError } = useAssignedTasks();
   const theme = useTheme();
+  // console.log("hehe",data);
+  
 
   const strokeColor = isDarkTheme ? "#fff" : "#000";
 
@@ -48,8 +52,8 @@ const AdminDashboard = ({ isDarkTheme }) => {
           <Attendence />
         </div>
 
-        <div className="mx-4  w-1/2 h-3/4">
-          <div className=" lg:w-full h-[78%] dark:text-white text-black relative rounded-lg mt-0 dark:border border-gray-700 dark:bg-black bg-white p-4 flex flex-col">
+        <div className="mx-4 w-1/2 h-3/4">
+          <div className="lg:w-full h-[78%] dark:text-white text-black relative rounded-lg mt-0 dark:border border-gray-700 dark:bg-black bg-white p-4 flex flex-col">
             <div className="flex justify-between items-center mb-2 -mt-2">
               <h1 className="text-left text-sm font-semibold">My Tasks</h1>
               <p
@@ -173,25 +177,7 @@ const AdminDashboard = ({ isDarkTheme }) => {
                     <span className="absolute dark:text-white left-14 bottom-1 text-xs">
                       Firos V A
                     </span>
-                    {/* <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth="1.5"
-                      stroke={ strokeColor }
-                      className="absolute dark:text-white text-black right-[100px] pb-0 bottom-1 w-4 h-4"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-                      />
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
-                      />
-                    </svg> */}
+                   
                     <GrLocation className="absolute dark:text-white text-gray-800 right-[104px] max-w-1245:right-[106px] pb-0 bottom-1 w-4 h-4" />
                     <span className="absolute dark:text-white right-[10px] bottom-1 text-xs">
                       Kalur, Ernakulam

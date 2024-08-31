@@ -11,11 +11,11 @@ const axiosInstance = axios.create({
 // Request interceptor to include token in headers
 axiosInstance.interceptors.request.use(
   (config) => {
-    // Get the token from localStorage or any other storage
-    const token = localStorage.getItem("token"); 
-  
+    const token = localStorage.getItem("token");
+    console.log("Using Token:", token); // Debug statement
+
     if (token) {
-      config.headers["Authorization"] = `Bearer ${token}`; 
+      config.headers["Authorization"] = `Bearer ${token}`;
     }
     return config;
   },
@@ -23,5 +23,6 @@ axiosInstance.interceptors.request.use(
     return Promise.reject(error);
   }
 );
+
 
 export default axiosInstance;

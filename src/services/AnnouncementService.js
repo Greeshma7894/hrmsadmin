@@ -1,5 +1,11 @@
-const WEBSOCKET_URL = 'https://seashell-app-qz64y.ondigitalocean.app/ws'; 
+import axiosInstance from './axiosInstance';
+import { getAnnouncements } from './api';
 
+// WebSocket URL
+const WEBSOCKET_URL = 'https://seashell-app-qz64y.ondigitalocean.app/ws';
+
+
+// Function to connect to the WebSocket
 export const connectWebSocket = () => {
   const socket = new WebSocket(WEBSOCKET_URL);
 
@@ -20,4 +26,17 @@ export const connectWebSocket = () => {
   };
 
   return socket;
+};
+
+// Function to fetch initial announcements using REST API
+export const fetchAnnouncements = async () => {
+  try {
+    const response = await axiosInstance.get("/employee/announcement/get");
+    console.log("hgagaga",response);
+    
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching announcements:', error);
+    throw error; // Rethrow the error to handle it in the component
+  }
 };

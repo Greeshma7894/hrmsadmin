@@ -6,8 +6,8 @@ const ApplyLeave = () => {
       <div className="">
         {/* Button and leave status section */}
         <div className="max-w-1245:mt-1 flex rounded-lg h-full items-center mt-1">
-          <div className=''>
-            <button className="bg-lime-500 dark:text-black text-white max-w-1245:text-xs px-3 py-2 -mt-1 rounded-lg flex items-center text-xs">
+          <div className='h-[40px] max-w-1245:h-[20px]'>
+            <button className="bg-lime-500 dark:text-black text-white max-w-1245:text-[10px] px-3 py-2.5 max-w-1245:py-2 min-w-1245:-mt-0 max-w-1245:-mt-2 rounded-lg flex items-center text-xs">
               Apply Leave
             </button>
           </div>

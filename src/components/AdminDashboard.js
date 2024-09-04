@@ -33,7 +33,8 @@ const AdminDashboard = ({ isDarkTheme }) => {
   );
 
   const handleDateChange = (newDate) => {
-    setSelectedDate(dayjs(newDate));
+    setSelectedDate(dayjs(newDate)); // Ensure newDate is wrapped in dayjs
+    setIsCalendarOpen(false); // Close the calendar after date is selected
   };
 
   const toggleCalendar = () => {
@@ -196,11 +197,13 @@ const AdminDashboard = ({ isDarkTheme }) => {
           </div>
 
           <div className="w-full h-3/4 max-w-1245:h-[74%] py-3 flex ">
-            <div className="w-1/2 overflow-y-scroll scrollbar-hide rounded-lg h-[74%]  dark:bg-black bg-white dark:border border-gray-700 flex flex-col overflow-hidden">
+            <div className="w-1/2 overflow-y-scroll scrollbar-hide rounded-lg h-[74%] dark:bg-black bg-white dark:border border-gray-700 flex flex-col overflow-hidden">
               <Events />
             </div>
-            <div className="ps-4 w-1/2 overflow-y-scroll scrollbar-hide rounded-lg h-[74%] dark:bg-black bg-white dark:border border-gray-700 flex flex-col">
-              <Announcements />
+            <div className="overflow-y-scroll scrollbar-hide  pe-0 h-full w-1/2 px-3">
+            <div className="rounded-lg h-[74%] dark:bg-black bg-white dark:border border-gray-700 flex flex-col overflow-hidden">
+              <Announcements/>
+            </div>
             </div>
           </div>
         </div>
@@ -210,7 +213,7 @@ const AdminDashboard = ({ isDarkTheme }) => {
         </div>
       </div>
 
-      <Navbar />
+      <Navbar activePage="hrms" />
     </div>
   );
 };

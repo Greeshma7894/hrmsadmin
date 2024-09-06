@@ -1,6 +1,24 @@
-import React from 'react'
+import React from 'react';
+import { useLeaveData } from '../services/LeaveService'; // Assuming you have a leaveService.js file
 
 const ApplyLeave = () => {
+  // Example to fetch the most recent leave data
+  const { data: leaveData, isLoading, isError } = useLeaveData({ limit: 1, sort: 'desc' });
+  console.log("leave status",leaveData);
+  
+
+  // Determine the status to display
+  let statusText = 'Loading...';
+  if (isError) {
+    statusText = 'Error fetching status';
+  } else if (!isLoading && leaveData && leaveData.length > 0) {
+    statusText = leaveData[0].status; // Adjust based on your API response structure
+    console.log(statusText);
+    
+  } else if (!isLoading) {
+    statusText = 'No previous leave';
+  }
+
   return (
     <div>
       <div className="">
@@ -12,11 +30,11 @@ const ApplyLeave = () => {
             </button>
           </div>
           <div className="flex flex-col ml-2">
-            <p className="dark:text-gray-300 max-w-1245:-mt-2  max-w-1245:text-[10px] text-gray-800 text-xs -mt-1">
+            <p className="dark:text-gray-300 max-w-1245:-mt-2 max-w-1245:text-[10px] text-gray-800 text-xs -mt-1">
               Previous leave Status
             </p>
-            <p className="dark:text-white max-w-1245:text-xs max-w-1245:font-semibold  text-black text-base -mt-1 max-w-1245:-mt-1 font-semibold">
-              Approved
+            <p className="dark:text-white max-w-1245:text-xs max-w-1245:font-semibold text-black text-base -mt-1 max-w-1245:-mt-1 font-semibold">
+              {statusText}
             </p>
           </div>
         </div>
@@ -27,7 +45,7 @@ const ApplyLeave = () => {
         </p>
       </div>
     </div>
-  )
+  );
 }
 
-export default ApplyLeave
+export default ApplyLeave;

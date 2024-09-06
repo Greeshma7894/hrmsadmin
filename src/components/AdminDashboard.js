@@ -22,6 +22,7 @@ const AdminDashboard = ({ isDarkTheme }) => {
   const formattedDate = dayjs(selectedDate).format("YYYY-MM-DD");
 
   const { data: tasks, isLoading, isError } = useAssignedTasks(formattedDate);
+  console.log("tasks are", tasks);
 
   // Filter tasks based on the selected date
   const filteredTasks = tasks?.task?.filter((task) =>
@@ -29,7 +30,7 @@ const AdminDashboard = ({ isDarkTheme }) => {
   );
 
   const taskTimes = filteredTasks?.map((task) =>
-    dayjs(task.completion_time).format("hh:mm A")
+    dayjs(task.date).format("hh:mm A")
   );
 
   const handleDateChange = (newDate) => {
@@ -40,7 +41,6 @@ const AdminDashboard = ({ isDarkTheme }) => {
   const toggleCalendar = () => {
     setIsCalendarOpen(!isCalendarOpen);
   };
-
 
   return (
     <div className="pt-4 overflow-hidden dark:bg-neutral-900 bg-gray-200 h-screen flex flex-col">
@@ -140,18 +140,23 @@ const AdminDashboard = ({ isDarkTheme }) => {
               </div>
             </div>
 
-            <div className="flex overflow-y-scroll h-full no-scrollbar">
+            <div className="flex overflow-y-scroll h-full no-scrollbar justify-end">
               <div>
-              {taskTimes && taskTimes.length > 0 && (
-                <TimelineComponent times={taskTimes} isDarkMode={isDarkTheme} />
-              )}
+                {taskTimes && taskTimes.length > 0 && (
+                  <TimelineComponent
+                    times={taskTimes}
+                    isDarkMode={isDarkTheme}
+                  />
+                )}
               </div>
-              <div className="pt-3 flex w-full h-full flex-col space-y-2">
+              <div className="pt-3 flex w-full h-full flex-col space-y-2 ">
                 {isLoading && <p>Loading...</p>}
                 {isError && <p>Error fetching tasks.</p>}
-                {!isLoading && !isError && (!filteredTasks || filteredTasks.length === 0) && (
-                  <p>No tasks for this date.</p>
-                )}
+                {!isLoading &&
+                  !isError &&
+                  (!filteredTasks || filteredTasks.length === 0) && (
+                    <p>No tasks for this date.</p>
+                  )}
 
                 {!isLoading &&
                   !isError &&
@@ -160,36 +165,51 @@ const AdminDashboard = ({ isDarkTheme }) => {
                   filteredTasks.map((task) => (
                     <div
                       key={task.id}
-                      className="relative rounded-xl border dark:text-white text-black dark:bg-black bg-white dark:border-gray-700 h-[3.5rem] flex"
+                      className="relative  rounded-xl border dark:text-white text-black dark:bg-black bg-white dark:border-gray-700 h-[3.5rem] flex"
                     >
                       <div className="ps-2 rounded-l-xl dark:bg-lime-500 bg-lime-500 h-14"></div>
                       <div className="dark:bg-slate-900 bg-white ps-3 "></div>
-                      <h1 className="ps-2 pt-2 text-xs">{task.title}</h1>
-                      <span className="absolute right-4 top-2 text-xs">
-                        {dayjs(task.completion_time).format("HH:mm")}
+                      <div className="w-full flex justify-between">
+                      <div className="">
+                      <h1 className="ps-2 pt-4 max-w-1245:text-xs max-w-1245:pt-5 text-base">
+                        {task.title} 
+                      </h1>
+                      </div>
+                      
+                      <div className="relative right-[10px] flex justify-between end-0  items-end">
+                      <span className="absolute right-0 top-2 text-xs">
+                        {dayjs(task.date).format("h:MMA")}
                       </span>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke="currentColor"
-                        className="absolute left-9 bottom-1 w-4 h-4"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
-                        />
-                      </svg>
-                      <span className="absolute dark:text-white left-14 bottom-1 text-xs">
-                        {task.reporting_to[0]?.name || "Unassigned"}
-                      </span>
+                      <div className="mb-1 flex">
+                        <div className="flex items-center  space-x-1">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="1.5"
+                            stroke="currentColor"
+                            className="w-4 h-4 max-w-1245:w-3"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
+                            />
+                          </svg>
+                          <span className="text-xs pr-3  dark:text-white max-w-1245:text-[11px]">
+                            {task.reporting_to[0]?.name || "Unassigned"}
+                          </span>
+                        </div>
 
-                      <GrLocation className="absolute dark:text-white text-gray-800 right-[60px] max-w-1245:right-[106px] pb-0 bottom-1 w-4 h-4" />
-                      <span className="absolute dark:text-white right-[14px] bottom-1 text-xs">
-                        {task.place_name}
-                      </span>
+                        <div className="flex items-center space-x-1">
+                          <GrLocation className="text-gray-800  dark:text-white w-4 h-4 max-w-1245:w-3" />
+                          <span className="text-xs dark:text-white max-w-1245:text-[11px]">
+                            {task.place_name}
+                          </span>
+                        </div>
+                        </div>
+                      </div>
+                      </div>
                     </div>
                   ))}
               </div>
@@ -201,9 +221,9 @@ const AdminDashboard = ({ isDarkTheme }) => {
               <Events />
             </div>
             <div className="overflow-y-scroll scrollbar-hide  pe-0 h-full w-1/2 px-3">
-            <div className="rounded-lg h-[74%] dark:bg-black bg-white dark:border border-gray-700 flex flex-col overflow-hidden">
-              <Announcements/>
-            </div>
+              <div className="rounded-lg h-[74%] dark:bg-black bg-white dark:border border-gray-700 flex flex-col overflow-hidden">
+                <Announcements />
+              </div>
             </div>
           </div>
         </div>

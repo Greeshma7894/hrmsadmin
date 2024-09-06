@@ -41,7 +41,7 @@ const EmployeeDetails = () => {
                 </div>
               </div>
             </div>
-            <div className="mt-1 max-w-1245:mt-1">
+            <div className="mt-1  max-w-1245:mt-1">
               <EditIcon
                 className="text-gray-400 bg-gray-700 rounded-full p-1"
                 fontSize="small"
@@ -49,11 +49,11 @@ const EmployeeDetails = () => {
             </div>
           </div>
 
-          <div>
-            <h1 className="text-gray-500 max-w-1245:font-semibold max-w-1245:text-[10px] min-w-1245:font-semibold min-w-1245:text-xs mb-8">
+          <div className="max-w-1245:mt-1 mt-5">
+            <h1 className="text-gray-500  max-w-1245:font-semibold max-w-1245:text-[10px] min-w-1245:font-semibold min-w-1245:text-xs mb-4 max-w-1245:mb-8">
               Primary Details
             </h1>
-          </div>
+         
           <div className="max-w-1245:-mt-6 min-w-1245:-space-y-1">
             <div className="grid grid-cols-2 gap-4 mt-2 text-gray-300">
               <div>
@@ -146,6 +146,7 @@ const EmployeeDetails = () => {
           <h1 className="absolute min-w-1245:bottom-2 max-w-1245:bottom-2 max-w-1245:text-[10px] right-4 text-green-500 font-semibold text-xs cursor-pointer hover:underline">
             View more
           </h1>
+        </div>
         </div>
       </div>
 

@@ -45,13 +45,14 @@ export const useAttendanceData = () => {
         const { data } = response; // Assuming the response has a 'data' field
 
         if (Array.isArray(data)) {
-          const targetMonth = 7; // August is the 8th month, but JavaScript months are 0-indexed
-          const currentYear = new Date().getFullYear();
+          const currentDate = new Date();
+          const currentMonth = currentDate.getMonth(); // JavaScript months are 0-indexed
+          const currentYear = currentDate.getFullYear();
 
-          // Filter data for August
+          // Filter data for the current month and year
           const filteredData = data.filter(entry => {
             const entryDate = new Date(entry.date);
-            return entryDate.getMonth() === targetMonth && entryDate.getFullYear() === currentYear;
+            return entryDate.getMonth() === currentMonth && entryDate.getFullYear() === currentYear;
           });
 
           setAttendanceData(filteredData);

@@ -117,7 +117,7 @@ const Attendance = () => {
             <h1 className="max-w-1245:text-xs text-md dark:text-white text-black font-sf-pro">
               {checkInTime}
             </h1>
-            <p className=" max-w-1245:text-[11px] text-sm text-gray-600 font-sf-pro">
+            <p className="ps-1 max-w-1245:text-[11px] text-sm text-gray-600 font-sf-pro">
               Check-in
             </p>
           </div>

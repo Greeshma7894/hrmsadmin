@@ -18,3 +18,6 @@ export const postCheckIn = "/employee/attendance/in"
 export const postCheckOut = "/employee/attendance/out"
 export const getAttendance = "/employee/attendance/list"
 export const getAttendanceAll = "/employee/attendance/list/all"
+
+//Leave
+export const getLeave = "/employee/leave/get"

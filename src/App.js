@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query'; // Import these
-import AdminDashboard from './components/AdminDashboard'; // Adjust path as needed
+import AdminDashboard from './components/UserDashboard/AdminDashboard'; // Adjust path as needed
 
 const queryClient = new QueryClient(); // Create a QueryClient instance
 

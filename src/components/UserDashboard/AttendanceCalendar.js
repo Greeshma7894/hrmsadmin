@@ -1,5 +1,5 @@
 import React from "react";
-import { useAttendanceData } from "../hooks/useAttendance";
+import { useAttendanceData } from "../../hooks/useAttendance";
 
 const AttendanceCalendar = () => {
   const { attendanceData, isLoading, isError } = useAttendanceData();

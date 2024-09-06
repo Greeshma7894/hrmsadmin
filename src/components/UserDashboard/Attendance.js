@@ -6,7 +6,7 @@ import {
   getAttendanceList,
   // getAttendanceAll,
   // fetchAttendanceForCurrentMonth
-} from "../services/AttendanceService";
+} from "../../services/AttendanceService";
 import AttendanceCalendar from "./AttendanceCalendar";
 
 const Attendance = () => {

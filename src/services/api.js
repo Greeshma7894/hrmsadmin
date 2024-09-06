@@ -1,5 +1,5 @@
 //UserProfile
-export const getUser = "/employee/auth/profile/get"
+export const getUser = "/employee/profile/get"
 
 //Events
 export const getBirthday = "/employee/event/birth-month/get"

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLeaveData } from '../services/LeaveService'; // Assuming you have a leaveService.js file
+import { useLeaveData } from '../../services/LeaveService'; // Assuming you have a leaveService.js file
 
 const ApplyLeave = () => {
   // Example to fetch the most recent leave data

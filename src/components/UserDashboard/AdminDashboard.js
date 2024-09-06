@@ -1,22 +1,24 @@
 import React, { useState, useEffect } from "react";
-import Attendence from "./Attendance";
-import Header from "./Header";
-import TimelineComponent from "./TimelineComponent";
-import EmployeeDetails from "./EmployeeDetails";
-import Navbar from "./Navbar";
+import Attendance from "../UserDashboard/Attendance"
+import Header from "../UserDashboard/Header";
+import TimelineComponent from "../UserDashboard/TimelineComponent";
+import EmployeeDetails from "../UserDashboard/EmployeeDetails";
+import Navbar from "../UserDashboard/Navbar";
 import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
 import { useTheme } from "@mui/material/styles";
-import Events from "./Events";
-import Announcements from "./Announcements";
+import Events from "../UserDashboard/Events";
+import Announcements from "../UserDashboard/Announcements";
 import dayjs from "dayjs";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { GrLocation } from "react-icons/gr";
-import { useAssignedTasks } from "../services/TaskService";
+import { useAssignedTasks } from "../../services/TaskService";
+import RightSideDrawer from "../UserDashboard/Drawer";
 
 const AdminDashboard = ({ isDarkTheme }) => {
   const [selectedDate, setSelectedDate] = useState(dayjs());
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
   const theme = useTheme();
 
   const formattedDate = dayjs(selectedDate).format("YYYY-MM-DD");
@@ -24,14 +26,28 @@ const AdminDashboard = ({ isDarkTheme }) => {
   const { data: tasks, isLoading, isError } = useAssignedTasks(formattedDate);
   console.log("tasks are", tasks);
 
+  const toggleDrawer = (open) => (event) => {
+    // Debugging: Check if toggleDrawer is triggered on div click
+    console.log("Drawer toggle triggered:", open);
+
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+    setDrawerOpen(open);
+  };  
+
   // Filter tasks based on the selected date
   const filteredTasks = tasks?.task?.filter((task) =>
     dayjs(task.date).isSame(selectedDate, "day")
   );
 
   const taskTimes = filteredTasks?.map((task) =>
-    dayjs(task.date).format("hh:mm A")
+    dayjs(task.completion_time).format("hh:mm A")
   );
+  
+  // Log the taskTimes array
+  console.log("hehhhehe",taskTimes);
+  
 
   const handleDateChange = (newDate) => {
     setSelectedDate(dayjs(newDate)); // Ensure newDate is wrapped in dayjs
@@ -42,16 +58,36 @@ const AdminDashboard = ({ isDarkTheme }) => {
     setIsCalendarOpen(!isCalendarOpen);
   };
 
+  const formatTime = (isoString) => {
+    if (!isoString) return "00:00 AM"; // Default if there's no input
+
+    try {
+      // Extract the time part
+      const timePart = isoString.split("T")[1].split("Z")[0];
+      const [hours, minutes] = timePart.split(":");
+      const hour = parseInt(hours, 10);
+      const period = hour >= 12 ? "PM" : "AM";
+      const formattedHour = hour % 12 || 12;
+
+      // Return formatted time
+      return `${formattedHour}:${minutes} ${period}`;
+    } catch (error) {
+      console.error("Error parsing ISO string:", error);
+      return "Invalid Time";
+    }
+  };
+
   return (
     <div className="pt-4 overflow-hidden dark:bg-neutral-900 bg-gray-200 h-screen flex flex-col">
       <div className="px-4 flex h-[87%]">
         <div className="w-full h-full md:w-1/4">
-          <Attendence />
+          <Attendance />
         </div>
 
         <div className="mx-4 w-1/2 h-3/4">
           <div className="lg:w-full h-[78%] dark:bg-black bg-white dark:text-white text-black relative rounded-lg mt-0 dark:border border-gray-700 p-4 flex flex-col">
-            <div className="flex justify-between items-center mb-2 -mt-2">
+            <div className="flex justify-between items-center mb-2 -mt-2" >
+              
               <h1 className="text-left text-sm font-semibold">My Tasks</h1>
               <p
                 className="dark:text-white text-gray-400 text-right text-xs font-thin cursor-pointer"
@@ -163,54 +199,58 @@ const AdminDashboard = ({ isDarkTheme }) => {
                   Array.isArray(filteredTasks) &&
                   filteredTasks.length > 0 &&
                   filteredTasks.map((task) => (
+                    <div>
+                    {/* Task div with onClick to trigger the drawer */}
                     <div
                       key={task.id}
-                      className="relative  rounded-xl border dark:text-white text-black dark:bg-black bg-white dark:border-gray-700 h-[3.5rem] flex"
+                      className="relative rounded-xl border dark:text-white text-black dark:bg-black bg-white dark:border-gray-700 h-[3.5rem] flex"
+                      onClick={toggleDrawer(true)}  // Trigger drawer on click
                     >
                       <div className="ps-2 rounded-l-xl dark:bg-lime-500 bg-lime-500 h-14"></div>
-                      <div className="dark:bg-slate-900 bg-white ps-3 "></div>
+                      <div className="dark:bg-slate-900 bg-white ps-3"></div>
                       <div className="w-full flex justify-between">
-                      <div className="">
-                      <h1 className="ps-2 pt-4 max-w-1245:text-xs max-w-1245:pt-5 text-base">
-                        {task.title} 
-                      </h1>
-                      </div>
-                      
-                      <div className="relative right-[10px] flex justify-between end-0  items-end">
-                      <span className="absolute right-0 top-2 text-xs">
-                        {dayjs(task.date).format("h:MMA")}
-                      </span>
-                      <div className="mb-1 flex">
-                        <div className="flex items-center  space-x-1">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth="1.5"
-                            stroke="currentColor"
-                            className="w-4 h-4 max-w-1245:w-3"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
-                            />
-                          </svg>
-                          <span className="text-xs pr-3  dark:text-white max-w-1245:text-[11px]">
-                            {task.reporting_to[0]?.name || "Unassigned"}
+                        <div>
+                          <h1 className="ps-2 pt-4 max-w-1245:text-xs max-w-1245:pt-5 text-base">
+                            {task.title}
+                          </h1>
+                        </div>
+                        <div className="relative right-[10px] flex justify-between end-0 items-end">
+                          <span className="absolute right-0 top-2 text-xs">
+                          {formatTime(task.date)}
                           </span>
+                          <div className="mb-1 flex">
+                            <div className="flex items-center space-x-1">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                strokeWidth="1.5"
+                                stroke="currentColor"
+                                className="w-4 h-4 max-w-1245:w-3"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
+                                />
+                              </svg>
+                              <span className="text-xs pr-3 dark:text-white max-w-1245:text-[11px]">
+                                {task.reporting_to[0]?.name || "Unassigned"}
+                              </span>
+                            </div>
+                            <div className="flex items-center space-x-1">
+                              <span className="text-xs dark:text-white max-w-1245:text-[11px]">
+                                {task.place_name}
+                              </span>
+                            </div>
+                          </div>
                         </div>
-
-                        <div className="flex items-center space-x-1">
-                          <GrLocation className="text-gray-800  dark:text-white w-4 h-4 max-w-1245:w-3" />
-                          <span className="text-xs dark:text-white max-w-1245:text-[11px]">
-                            {task.place_name}
-                          </span>
-                        </div>
-                        </div>
-                      </div>
                       </div>
                     </div>
+              
+                    {/* Drawer Component */}
+                    <RightSideDrawer open={drawerOpen} toggleDrawer={toggleDrawer} />
+                  </div>
                   ))}
               </div>
             </div>

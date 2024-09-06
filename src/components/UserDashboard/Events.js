@@ -4,7 +4,7 @@ import {
   useBirthdayUsers,
   useWorkAnniversaryUsers,
   useNewJoinees,
-} from "../services/EventService";
+} from "../../services/EventService";
 
 const Events = () => {
   const {

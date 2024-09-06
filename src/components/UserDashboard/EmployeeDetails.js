@@ -1,12 +1,12 @@
 import React from "react";
 import { useQuery } from "react-query";
-import { fetchUserProfile } from "../services/ProfileService";
+import { fetchUserProfile } from "../../services/ProfileService";
 import Avatar from "@mui/material/Avatar";
 import EditIcon from "@mui/icons-material/Edit";
 
 import ApplyLeave from "./ApplyLeave";
 import SalaryDetails from "./SalaryDetails";
-import Achievements from "./Achievements";
+import Achievements from "../UserDashboard/Achievements";
 
 const EmployeeDetails = () => {
   const { data, error, isLoading } = useQuery("userProfile", fetchUserProfile);

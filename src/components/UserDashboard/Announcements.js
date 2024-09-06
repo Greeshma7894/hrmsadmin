@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { FaUsers, FaRocket, FaSuitcaseRolling, FaUmbrellaBeach } from "react-icons/fa";
-import { connectWebSocket } from '../services/AnnouncementService';
+import { connectWebSocket } from '../../services/AnnouncementService';
 import { useQuery } from 'react-query';
-import { fetchAnnouncements } from '../services/AnnouncementService';
+import { fetchAnnouncements } from '../../services/AnnouncementService';
 import axios from 'axios';
 
 const Announcements = () => {

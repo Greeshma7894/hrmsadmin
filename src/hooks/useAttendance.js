@@ -40,7 +40,7 @@ export const useAttendanceData = () => {
     const fetchAttendance = async () => {
       try {
         const response = await getAttendanceAll();
-        console.log("Fetched Response:", response); // Log the response for debugging
+        //console.log("Fetched Response:", response); // Log the response for debugging
         
         const { data } = response; // Assuming the response has a 'data' field
 

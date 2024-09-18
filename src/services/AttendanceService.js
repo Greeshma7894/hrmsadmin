@@ -40,7 +40,7 @@ export const getAttendanceList = async () => {
   export const getAttendanceAll = async () => {
     try {
       const response = await axiosInstance.get("/employee/attendance/list/all");
-      console.log("hemme", response.data); // Log the full response for debugging
+     // console.log("hemme", response.data); // Log the full response for debugging
   
       return response.data; 
     } catch (error) {

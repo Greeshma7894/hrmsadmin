@@ -1,10 +1,15 @@
-import React from 'react';
+import React , {useState} from 'react';
 import { useLeaveData } from '../../services/LeaveService'; // Assuming you have a leaveService.js file
+import RightSideDrawer from './Drawer';
 
 const ApplyLeave = () => {
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [selectedPage, setSelectedPage] = useState('applyleave');
+
+  
   // Example to fetch the most recent leave data
   const { data: leaveData, isLoading, isError } = useLeaveData({ limit: 1, sort: 'desc' });
-  console.log("leave status",leaveData);
+  //console.log("leave status",leaveData);
   
 
   // Determine the status to display
@@ -13,11 +18,20 @@ const ApplyLeave = () => {
     statusText = 'Error fetching status';
   } else if (!isLoading && leaveData && leaveData.length > 0) {
     statusText = leaveData[0].status; // Adjust based on your API response structure
-    console.log(statusText);
+   // console.log(statusText);
     
   } else if (!isLoading) {
     statusText = 'No previous leave';
   }
+
+  const handleApplyleave = () => {
+    setSelectedPage('applyleave');
+    setDrawerOpen(true);
+  };
+
+  const toggleDrawer = (open) => () => {
+    setDrawerOpen(open);
+  };
 
   return (
     <div>
@@ -25,9 +39,15 @@ const ApplyLeave = () => {
         {/* Button and leave status section */}
         <div className="max-w-1245:mt-1 flex rounded-lg h-full items-center mt-1">
           <div className='h-[40px] max-w-1245:h-[20px]'>
-            <button className="bg-lime-500 dark:text-black text-white max-w-1245:text-[10px] px-3 py-2.5 max-w-1245:py-2 min-w-1245:-mt-0 max-w-1245:-mt-2 rounded-lg flex items-center text-xs">
+            <button className="bg-lime-500 dark:text-black text-white max-w-1245:text-[10px] px-3 py-2.5 max-w-1245:py-2 min-w-1245:-mt-0 max-w-1245:-mt-2 rounded-lg flex items-center text-xs"
+            onClick={handleApplyleave}>
               Apply Leave
             </button>
+            <RightSideDrawer
+        open={drawerOpen}
+        toggleDrawer={toggleDrawer}
+        selectedPage={selectedPage}
+      />
           </div>
           <div className="flex flex-col ml-2">
             <p className="dark:text-gray-300 max-w-1245:-mt-2 max-w-1245:text-[10px] text-gray-800 text-xs -mt-1">

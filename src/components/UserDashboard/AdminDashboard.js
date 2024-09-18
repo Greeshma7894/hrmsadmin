@@ -19,16 +19,18 @@ const AdminDashboard = ({ isDarkTheme }) => {
   const [selectedDate, setSelectedDate] = useState(dayjs());
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [selectedPage, setSelectedPage] = useState('task');
+  const [selectedTask, setSelectedTask] = useState(null);
   const theme = useTheme();
 
   const formattedDate = dayjs(selectedDate).format("YYYY-MM-DD");
 
   const { data: tasks, isLoading, isError } = useAssignedTasks(formattedDate);
-  console.log("tasks are", tasks);
+  //console.log("tasks are", tasks);
 
   const toggleDrawer = (open) => (event) => {
     // Debugging: Check if toggleDrawer is triggered on div click
-    console.log("Drawer toggle triggered:", open);
+   // console.log("Drawer toggle triggered:", open);
 
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
@@ -46,7 +48,7 @@ const AdminDashboard = ({ isDarkTheme }) => {
   );
   
   // Log the taskTimes array
-  console.log("hehhhehe",taskTimes);
+  //console.log("hehhhehe",taskTimes);
   
 
   const handleDateChange = (newDate) => {
@@ -56,6 +58,11 @@ const AdminDashboard = ({ isDarkTheme }) => {
 
   const toggleCalendar = () => {
     setIsCalendarOpen(!isCalendarOpen);
+  };
+
+  const handleTaskClick = (task) => {
+    setSelectedTask(task);
+    setDrawerOpen(true);
   };
 
   const formatTime = (isoString) => {
@@ -177,7 +184,7 @@ const AdminDashboard = ({ isDarkTheme }) => {
             </div>
 
             <div className="flex overflow-y-scroll h-full no-scrollbar justify-end">
-              <div>
+              <div className="">
                 {taskTimes && taskTimes.length > 0 && (
                   <TimelineComponent
                     times={taskTimes}
@@ -185,7 +192,7 @@ const AdminDashboard = ({ isDarkTheme }) => {
                   />
                 )}
               </div>
-              <div className="pt-3 flex w-full h-full flex-col space-y-2 ">
+              <div className="pt-3  flex w-full h-full flex-col space-y-2 ">
                 {isLoading && <p>Loading...</p>}
                 {isError && <p>Error fetching tasks.</p>}
                 {!isLoading &&
@@ -199,12 +206,12 @@ const AdminDashboard = ({ isDarkTheme }) => {
                   Array.isArray(filteredTasks) &&
                   filteredTasks.length > 0 &&
                   filteredTasks.map((task) => (
-                    <div>
+                    <div className="">
                     {/* Task div with onClick to trigger the drawer */}
                     <div
                       key={task.id}
                       className="relative rounded-xl border dark:text-white text-black dark:bg-black bg-white dark:border-gray-700 h-[3.5rem] flex"
-                      onClick={toggleDrawer(true)}  // Trigger drawer on click
+                      onClick={() => handleTaskClick(task)}  // Trigger drawer on click
                     >
                       <div className="ps-2 rounded-l-xl dark:bg-lime-500 bg-lime-500 h-14"></div>
                       <div className="dark:bg-slate-900 bg-white ps-3"></div>
@@ -249,7 +256,12 @@ const AdminDashboard = ({ isDarkTheme }) => {
                     </div>
               
                     {/* Drawer Component */}
-                    <RightSideDrawer open={drawerOpen} toggleDrawer={toggleDrawer} />
+                    <RightSideDrawer
+        open={drawerOpen}
+        toggleDrawer={toggleDrawer}
+        selectedPage={selectedPage}
+        task={selectedTask}
+      />
                   </div>
                   ))}
               </div>

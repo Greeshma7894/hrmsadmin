@@ -4,8 +4,6 @@ import {
   checkIn,
   checkOut,
   getAttendanceList,
-  // getAttendanceAll,
-  // fetchAttendanceForCurrentMonth
 } from "../../services/AttendanceService";
 import AttendanceCalendar from "./AttendanceCalendar";
 
@@ -178,8 +176,19 @@ const Attendance = () => {
         </div>
       </div>
       {/* Attendance Calendar Header */}
-      <div className="overflow-y-scroll scrollbar-hide">
+      
+      <div className="">
+      <div className="flex sticky justify-between">
+        <h1 className=" max-w-1245:text-xs ps-3 mb-1 text-sm dark:text-gray-400 text-gray-600">
+          Attendance Calendar
+        </h1>
+        <h1 className="max-w-1245:text-xs text-sm text-green-500 mr-1 cursor-pointer hover:underline">
+          View all
+        </h1>
+      </div>
+        <div>
       <AttendanceCalendar/>
+      </div>
       </div>
     </div>
   );

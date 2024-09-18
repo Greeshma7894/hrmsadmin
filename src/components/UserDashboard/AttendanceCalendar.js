@@ -3,15 +3,15 @@ import { useAttendanceData } from "../../hooks/useAttendance";
 
 const AttendanceCalendar = () => {
   const { attendanceData, isLoading, isError } = useAttendanceData();
-  console.log("attendance Data", attendanceData);
+ // console.log("attendance Data", attendanceData);
 
   // Get the current month and year
   const currentDate = new Date();
   const currentMonth = currentDate.getMonth(); // JavaScript months are 0-indexed
   const currentYear = currentDate.getFullYear(); // Full year
 
-  console.log("Current Month:", currentMonth);
-  console.log("Current Year:", currentYear);
+  //console.log("Current Month:", currentMonth);
+  //console.log("Current Year:", currentYear);
 
   const filteredAttendance = attendanceData.filter((entry) => {
     const entryDate = new Date(Date.parse(entry.date));
@@ -31,38 +31,14 @@ const AttendanceCalendar = () => {
     return `${formattedHour}:${minutes} ${period}`;
   };
 
-  // // Find the most recent "OUT" status
-  // const getLastOutTime = (entries) => {
-  //   // Filter entries to include only those with status "OUT"
-  //   const outEntries = entries.filter(entry => entry.status === "OUT");
-  
-  //   // Sort the filtered entries by time in descending order (latest first)
-  //   outEntries.sort((a, b) => new Date(b.time) - new Date(a.time));
-  
-  //   // Get the time of the most recent "OUT" entry
-  //   const mostRecentOutEntry = outEntries[0];
-  
-  //   // Return the time in a formatted string, or "N/A" if there is no "OUT" entry
-  //   return mostRecentOutEntry ? formatTime(mostRecentOutEntry.time) : "N/A";
-  // };
-  
-
   if (isLoading) return <p>Loading...</p>;
   if (isError) return <p>Error loading attendance data</p>;
   if (!filteredAttendance.length)
     return <p>No attendance records available for this month.</p>;
 
   return (
-    <div>
-      <div className="flex justify-between">
-        <h1 className="max-w-1245:text-xs ps-3 mb-1 text-sm dark:text-gray-400 text-gray-600">
-          Attendance Calendar
-        </h1>
-        <h1 className="max-w-1245:text-xs text-sm text-green-500 mr-1 cursor-pointer hover:underline">
-          View all
-        </h1>
-      </div>
-      <div className="rounded-lg scrollbar-hide max-w-1245:h-[58%] min-w-1245:h-[70%] overflow-y-scroll">
+    <>
+      <div className="rounded-lg scrollbar-hide overflow-y-auto h-[58vh] max-h-[70vh]">
         {filteredAttendance.map((entry, index) => (
           <div
             key={index}
@@ -72,7 +48,7 @@ const AttendanceCalendar = () => {
               <h1 className="max-w-1245:text-xl text-2xl dark:text-white text-black ps-2">
                 {new Date(entry.date).getDate()}{" "}
               </h1>
-              <p className="text-xs ps-1.5 text-gray-800">
+              <p className="text-xs ps-1.5 text-gray-800 dark:text-white">
                 {new Date(entry.date).toLocaleString("default", {
                   month: "short",
                 })}
@@ -80,37 +56,35 @@ const AttendanceCalendar = () => {
             </div>
 
             <div className="ml-5 mb-1">
-              <h2 className="text-xs pt-2 dark:text-white text-black">
+              <h2 className="text-xs pt-2 dark:text-white text-black max-w-1245:text-[11px]">
                 {entry.total_work_time} Hours
               </h2>
               {/* Display the time from the attendance array */}
               <p className="text-[10px] dark:text-gray-400 text-gray-900 pt-1">
-  {entry.attendance && entry.attendance.length > 0 ? (
-    <>
-      {/* Entry Time (first 'in') */}
-      {entry.attendance[0].time ? (
-        <>
-          {formatTime(entry.attendance[0].time)}
-        </>
-      ) : (
-        "Entry Time: N/A"
-      )}
-       &nbsp; to &nbsp;
-      {/* Exit Time (last 'out') */}
-      {entry.attendance[entry.attendance.length - 1].time ? (
-        <>
-          {formatTime(entry.attendance[entry.attendance.length - 1].time)}
-        </>
-      ) : (
-        "Exit Time: N/A"
-      )}
-    </>
-  ) : (
-    "N/A"
-  )}
-</p>
-
-
+                {entry.attendance && entry.attendance.length > 0 ? (
+                  <>
+                    {/* Entry Time (first 'in') */}
+                    {entry.attendance[0].time ? (
+                      <>{formatTime(entry.attendance[0].time)}</>
+                    ) : (
+                      "Entry Time: N/A"
+                    )}
+                    &nbsp; to &nbsp;
+                    {/* Exit Time (last 'out') */}
+                    {entry.attendance[entry.attendance.length - 1].time ? (
+                      <>
+                        {formatTime(
+                          entry.attendance[entry.attendance.length - 1].time
+                        )}
+                      </>
+                    ) : (
+                      "Exit Time: N/A"
+                    )}
+                  </>
+                ) : (
+                  "N/A"
+                )}
+              </p>
 
               <p className="max-w-1245:text-[10px] text-xs mt-2 font-bold text-green-700">
                 Get Details
@@ -130,8 +104,7 @@ const AttendanceCalendar = () => {
           </div>
         ))}
       </div>
-    
-    </div>
+    </>
   );
 };
 

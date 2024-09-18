@@ -1,21 +1,33 @@
-import React from "react";
+import React , {useState} from "react";
 import { useQuery } from "react-query";
 import { fetchUserProfile } from "../../services/ProfileService";
 import Avatar from "@mui/material/Avatar";
 import EditIcon from "@mui/icons-material/Edit";
-
+import RightSideDrawer from "./Drawer";
 import ApplyLeave from "./ApplyLeave";
 import SalaryDetails from "./SalaryDetails";
 import Achievements from "../UserDashboard/Achievements";
 
 const EmployeeDetails = () => {
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [selectedPage, setSelectedPage] = useState('profile');
+
+  const handleEditClick = () => {
+    setSelectedPage('profile');
+    setDrawerOpen(true);
+  };
+
+  const toggleDrawer = (open) => () => {
+    setDrawerOpen(open);
+  };
+  
   const { data, error, isLoading } = useQuery("userProfile", fetchUserProfile);
   //const token = localStorage.getItem("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6NCwiUHJpdmlsZWdlIjoxLCJSb2xlIjoiRU1QTE9ZRUUiLCJpYXQiOjE3MjQ5MDUyNDl9.q6IMwNwcK6-Ld4Pi-aUA8eiIegpX8Ao47ellXqfZEWU")
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error fetching user profile: {error.message}</div>;
 
   // Render user profile data when available
-  console.log("data is", data);
+  //console.log("data is", data);
   //console.log("token is",token)
     
   // console.log('Is Data Defined:', data !== undefined);
@@ -42,10 +54,16 @@ const EmployeeDetails = () => {
               </div>
             </div>
             <div className="mt-1  max-w-1245:mt-1">
-              <EditIcon
-                className="text-gray-400 bg-gray-700 rounded-full p-1"
-                fontSize="small"
-              />
+            <EditIcon
+          className="text-gray-400 bg-gray-700 rounded-full p-1 cursor-pointer"
+          fontSize="small"
+          onClick={handleEditClick} // Trigger drawer on click
+        />
+         <RightSideDrawer
+        open={drawerOpen}
+        toggleDrawer={toggleDrawer}
+        selectedPage={selectedPage}
+      />
             </div>
           </div>
 

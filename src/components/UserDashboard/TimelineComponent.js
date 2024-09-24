@@ -6,43 +6,20 @@ import TimelineConnector from "@mui/lab/TimelineConnector";
 import TimelineContent from "@mui/lab/TimelineContent";
 import TimelineDot from "@mui/lab/TimelineDot";
 
-const TimelineComponent = ({ times, isDarkMode }) => {
+const TimelineComponent = ({ times, isDarkMode, originalTimes }) => {
   if (!times || times.length === 0) return null;
+  console.log("times",times);
+  
+
+  // Calculate the number of dots to display as x + 1
+  const dotsCount = times.length + 1;
 
   return (
     <Timeline position="left" sx={{ marginTop: "10px" }}>
-      {times.map((time, index) => (
+      {Array.from({ length: dotsCount }).map((_, index) => (
         <TimelineItem key={index}>
           <TimelineSeparator>
-            {/* Add a dot above the line if there's only one task */}
-            {times.length === 1 && index === 0 && (
-              <TimelineDot
-                sx={{
-                  borderRadius: "50%",
-                  width: 10,
-                  height: 10,
-                  border: `2px solid ${isDarkMode ? "white" : "black"}`,
-                  margin: "0",
-                  backgroundColor: "white",
-                  position: "relative",
-                   
-                }}
-              />  
-            )}
-            {/* Add a connector line above the first dot if there's only one task */}
-            {times.length === 1 && index === 0 && (
-              <TimelineConnector
-                sx={{
-                  borderColor: isDarkMode ? "white" : "black",
-                  borderWidth: 1,
-                  width: 2,
-                  minHeight: "20px", // Adjust the height as needed
-                  position: "relative",
-                   // Adjust the position as needed
-                }}
-              />
-            )}
-            {/* Add the standard dot */}
+            {/* Render a dot for each index */}
             <TimelineDot
               sx={{
                 borderRadius: "50%",
@@ -53,8 +30,8 @@ const TimelineComponent = ({ times, isDarkMode }) => {
                 backgroundColor: "white",
               }}
             />
-            {/* Add the connector below the dot if there are more tasks */}
-            {(times.length > 1 || index < times.length - 1) && (
+            {/* Add the connector below each dot, except for the last one */}
+            {index < dotsCount - 1 && (
               <TimelineConnector
                 sx={{
                   borderColor: isDarkMode ? "white" : "black",
@@ -64,8 +41,9 @@ const TimelineComponent = ({ times, isDarkMode }) => {
               />
             )}
           </TimelineSeparator>
+          {/* Display the time for the first dot and subsequent task content */}
           <TimelineContent sx={{ fontSize: "0.75rem", whiteSpace: "nowrap" }}>
-            {time}
+            {index === 0 ? "00:00 AM" : times[index - 1] || ""}
           </TimelineContent>
         </TimelineItem>
       ))}

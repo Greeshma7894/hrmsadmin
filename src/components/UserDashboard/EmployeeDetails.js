@@ -32,7 +32,7 @@ const EmployeeDetails = () => {
     
   // console.log('Is Data Defined:', data !== undefined);
   // console.log('Is Data Empty:', !data || Object.keys(data).length === 0);
-  // console.log("greeshma",data.first_name);
+   //console.log("greeshma",data.nationality);
 
   return (
     <div className="flex flex-col w-full mt-0 items-center h-full">

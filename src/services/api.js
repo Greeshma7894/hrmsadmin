@@ -1,6 +1,7 @@
 //UserProfile
 export const getUser = "/employee/profile/get"
 export const updateUser = "/employee/profile/update"
+export const updateImg = "/employee/profile/image/upload"
 
 //Events
 export const getBirthday = "/employee/event/birth-month/get"
@@ -22,3 +23,4 @@ export const getAttendanceAll = "/employee/attendance/list/all"
 
 //Leave
 export const getLeave = "/employee/leave/get"
+export const applyLeave = "/employee/leave/apply"

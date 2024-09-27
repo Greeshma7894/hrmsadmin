@@ -4,20 +4,27 @@ import { useTheme } from "@mui/material/styles";
 import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { Button, Typography } from "@mui/material";
+import { Button, Typography, Snackbar, Alert } from "@mui/material";
+import axiosInstance from "../../../services/axiosInstance";
 
-const Applyleave = () => {
+const ApplyLeave = () => {
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [selectedDate, setSelectedDate] = useState(dayjs());
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [isSelectingStartDate, setIsSelectingStartDate] = useState(true);
+  const [leaveType, setLeaveType] = useState("");
+  const [reason, setReason] = useState("");
+  const [isFullDay, setIsFullDay] = useState(true);
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState("");
+  const [snackbarSeverity, setSnackbarSeverity] = useState("success");
   const theme = useTheme();
 
   const handleDateChange = (newDate) => {
     if (isSelectingStartDate) {
       setStartDate(dayjs(newDate));
-      setEndDate(null); // Reset end date when a new start date is selected
+      setEndDate(null);
     } else {
       setEndDate(dayjs(newDate));
     }
@@ -35,7 +42,6 @@ const Applyleave = () => {
     setIsCalendarOpen(true);
   };
 
-  // Custom render day function to highlight the date range
   const renderDay = (day, _value, DayComponentProps) => {
     const isInRange =
       startDate &&
@@ -48,7 +54,7 @@ const Applyleave = () => {
     return (
       <div
         style={{
-          backgroundColor: isStart || isEnd || isInRange ? "#84cc16" : "transparent", // lime-500 color
+          backgroundColor: isStart || isEnd || isInRange ? "#84cc16" : "transparent",
           color: isStart || isEnd ? "#fff" : undefined,
           borderRadius: isStart || isEnd ? "50%" : undefined,
           width: "100%",
@@ -63,24 +69,76 @@ const Applyleave = () => {
     );
   };
 
+  const handleSubmit = async () => {
+    const leaveDates = [];
+    if (startDate && endDate) {
+      let currentDate = startDate;
+      while (currentDate.isBefore(endDate) || currentDate.isSame(endDate, 'day')) {
+        leaveDates.push({
+          date: currentDate.format("YYYY-MM-DD"),
+          half_day: isFullDay ? "false" : "true",
+          half_day_type: isFullDay ? "0" : "1",
+        });
+        currentDate = currentDate.add(1, 'day');
+      }
+    }
+
+    const leaveData = {
+      leave_date: leaveDates,
+      reason: reason,
+      leave_type: leaveType,
+      cc: ["4"],
+    };
+
+    try {
+      const response = await axiosInstance.post("/employee/leave/apply", leaveData, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      setSnackbarMessage("Leave applied successfully!");
+      setSnackbarSeverity("success");
+      setSnackbarOpen(true);
+
+      setTimeout(() => {
+        window.location.reload(); // Refresh the page
+      }, 6000); // Delay refresh to show notification
+    } catch (error) {
+      setSnackbarMessage(
+        `Failed to apply leave. Error: ${
+          error.response
+            ? `${error.response.status} - ${error.response.data.message || error.response.data}`
+            : error.message
+        }`
+      );
+      setSnackbarSeverity("error");
+      setSnackbarOpen(true);
+    }
+  };
+
+  const handleCloseSnackbar = () => {
+    setSnackbarOpen(false);
+  };
+
   return (
     <div className="max-w-md mx-auto p-4">
-      <div className="mt-10">
+      <div className="mt-5">
         <h1 className="ps-8 text-lg font-semibold">Apply Leave</h1>
       </div>
       <div className="mx-4 text-xs text-start ps-4 pt-2.5 flex justify-start my-2 h-10 bg-gray-200 border border-gray-200 rounded-lg items-center">
         <select
           className="bg-transparent focus:outline-none text-xs mr-2 mb-2 w-full h-full cursor-pointer"
-          defaultValue=""
+          value={leaveType}
+          onChange={(e) => setLeaveType(e.target.value)}
         >
           <option value="" disabled>
             Select leave type*
           </option>
-          <option value="Casual Leave">Casual Leave</option>
-          <option value="Sick Leave">Sick Leave</option>
-          <option value="Paid Leave">Paid Leave</option>
-          <option value="Maternity Leave">Maternity Leave</option>
-          <option value="Paternity Leave">Paternity Leave</option>
+          <option value="1">Casual Leave</option>
+          <option value="2">Sick Leave</option>
+          <option value="3">Paid Leave</option>
+          <option value="4">Maternity Leave</option>
+          <option value="5">Paternity Leave</option>
         </select>
       </div>
 
@@ -93,7 +151,8 @@ const Applyleave = () => {
             renderDay={renderDay}
             sx={{
               "&.MuiCalendarPicker-root": {
-                width: "100%", // Full width of the container
+                width: "100%",
+               
               },
               "& .MuiPickersCalendarHeader-root": {
                 display: "flex",
@@ -101,33 +160,11 @@ const Applyleave = () => {
                 alignItems: "center",
                 padding: "0 8px",
                 fontSize: "0.775rem",
-              },
-              "& .MuiPickersArrowSwitcher-root": {
-                fontSize: "1.2rem",
-                color: "#000",
-              },
-              "& .MuiPickersCalendarHeader-label": {
-                fontSize: "1rem",
-                fontWeight: "bold",
-                textAlign: "center",
-                flex: 1,
+                
               },
               "& .MuiPickersDay-root": {
                 fontSize: "0.75rem",
                 borderRadius: "50%",
-                height: "30px",
-                width: "30px",
-                margin: "2px",
-                color: theme.palette.mode === "dark" ? "#fff" : "#000",
-              },
-              "& .MuiPickersDay-root.Mui-selected": {
-                backgroundColor: "#000",
-                color: "#fff",
-                fontWeight: "bold",
-              },
-              "& .MuiTypography-caption": {
-                fontSize: "0.75rem",
-                fontWeight: "normal",
               },
             }}
           />
@@ -178,20 +215,59 @@ const Applyleave = () => {
         </LocalizationProvider>
       </div>
 
-      {/* Full Day and Half Day Buttons in Horizontal Line */}
+      {/* Full Day and Half Day Buttons */}
       <div className="my-4 mx-10 flex justify-between space-x-6">
-        <button className="flex-1 font-semibold text-[13px] bg-lime-500 h-8 rounded-xl">
-          Full day
+        <button
+          className={`flex-1 font-semibold text-[13px] rounded-lg p-2 ${
+            isFullDay ? "bg-lime-500 text-white" : "bg-gray-200"
+          }`}
+          onClick={() => setIsFullDay(true)}
+        >
+          Full Day
         </button>
-        <button className="flex-1 font-semibold text-[13px] bg-lime-500 h-8 rounded-xl">
-          Half day
+        <button
+          className={`flex-1 font-semibold text-[13px] rounded-lg p-2 ${
+            !isFullDay ? "bg-lime-500 text-white" : "bg-gray-200"
+          }`}
+          onClick={() => setIsFullDay(false)}
+        >
+          Half Day
         </button>
       </div>
-      <div className="flex mx-6 my-4 text-sm border border-gray-200 py-8 rounded-lg bg-gray-200">
-        <p className="-mt-4 ps-3">Reason for leave*</p>
+
+      {/* Reason Input */}
+      <div className="mx-4 text-start my-2 h-20 bg-gray-200 border border-gray-200 rounded-lg flex items-center">
+        <textarea
+          className="bg-transparent focus:outline-none text-xs w-full h-full p-2"
+          placeholder="Reason for leave*"
+          value={reason}
+          onChange={(e) => setReason(e.target.value)}
+        />
       </div>
+
+      {/* Submit Button */}
+      <div className="flex justify-end my-3 mx-5">
+        <button
+          className="bg-lime-500 text-white py-2 px-8 rounded-lg text-[12px] font-semibold"
+          onClick={handleSubmit}
+        >
+          Apply 
+        </button>
+      </div>
+
+      {/* Snackbar for Notifications */}
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={3000}
+        onClose={handleCloseSnackbar}
+        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+      >
+        <Alert onClose={handleCloseSnackbar} severity={snackbarSeverity} sx={{ width: "100%" }}>
+          {snackbarMessage}
+        </Alert>
+      </Snackbar>
     </div>
   );
 };
 
-export default Applyleave;
+export default ApplyLeave;

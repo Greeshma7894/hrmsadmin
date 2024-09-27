@@ -27,7 +27,7 @@ const AdminDashboard = ({ isDarkTheme }) => {
   const formattedDate = dayjs(selectedDate).format("YYYY-MM-DD");
 
   const { data: tasks, isLoading, isError } = useAssignedTasks(formattedDate);
-  console.log("tasks are", tasks);
+  //console.log("tasks are", tasks);
 
   const toggleDrawer = (open) => (event) => {
     // Debugging: Check if toggleDrawer is triggered on div click
@@ -48,7 +48,7 @@ const AdminDashboard = ({ isDarkTheme }) => {
   );
 
   const taskTimes = filteredTasks?.map((task) => {
-    console.log(task.completion_time); // Log the completion_time for each task
+   // console.log(task.completion_time); // Log the completion_time for each task
     return dayjs(task.completion_time).format("hh:mm A");
   });
   

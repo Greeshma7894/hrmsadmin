@@ -15,7 +15,7 @@ axiosInstance.interceptors.request.use(
     console.log("Using Token:", token); // Debug statement
 
     if (token) {
-      config.headers["Authorization"] = `Bearer ${token}`;
+      config.headers["Authorization"] = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6NCwiUHJpdmlsZWdlIjoxLCJSb2xlIjoiRU1QTE9ZRUUiLCJpYXQiOjE3MjQ5OTE2NTN9.8s4tO9e7-wdq5nlDzDsJurYcvKlAfwAEJ1hQr3WvEuM`;
     }
     return config;
   },
